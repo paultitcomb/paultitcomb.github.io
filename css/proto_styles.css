@@ -1,0 +1,144 @@
+.hidden {
+	display: none;
+}
+
+.social-share {
+	background-color: #bbb;
+	display: inline-block;
+	position: fixed;
+	right: 0;
+	top: 50%;
+	transform: translateY(-50%);
+}
+
+.social-share .share-link {
+	background: none;
+	border: 0;
+	padding: 10px 5px;
+	margin: 0;
+	width: 55px;
+	height: 55px;
+}
+
+.share-button-panel {
+	position: absolute;
+	top: 50%;
+	right: 100%;
+	overflow: hidden;
+	transform: translate(150%, -50%);
+	display: flex;
+	background-color: #bbb;
+	height: 100%;
+	min-width: 280px;
+	align-items: center;
+	justify-content: space-around;
+	transition: transform 0.15s ease-out;
+}
+.share-button-panel.open {
+	transform: translate(0, -50%);
+}
+.share-button-panel .share-link:hover {
+	background-color: #797878;
+}
+
+.open-share-panel-btn img,
+.social-share .share-link img {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.open-share-panel-btn {
+	border: 1px solid black;
+	background-color: #da291c;
+	margin: 0;
+	width: 55px;
+	height: 55px;
+	padding: 10px 5px;
+	position: relative;
+	z-index: 1;
+}
+
+.open-share-panel-btn:hover {
+	background-color: #9a3324;
+}
+
+.details-input-panel {
+	display: flex;
+	align-items: center;
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background: #bbb;
+	transform: translateY(100%);
+	transition: transform 0.1s ease-in-out;
+}
+
+.details-input-panel.open {
+	transform: translateY(0);
+}
+
+.details-input-panel input[type='tel'],
+.details-input-panel input[type='email'] {
+	margin: 0 10px;
+	border-radius: 0;
+	border: 1px solid #797878;
+	height: 60%;
+	width: 50%;
+}
+.details-input-panel .send-btn {
+	height: 60%;
+	background-color: #da291c;
+	color: #fff;
+	border: 0;
+}
+.details-input-panel .send-btn:hover {
+	background-color: #9a3324;
+}
+.details-input-panel .close-phone-input-btn {
+	width: 30px;
+	height: 30px;
+	margin-left: 10px;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+.details-input-panel .close-phone-input-btn:hover {
+	background-color: #797878;
+	color: #fff;
+}
+
+/* with default share buttons showing */
+.social-share.visible-defaults {
+	display: flex;
+	flex-direction: column;
+}
+.social-share.visible-defaults > .share-link {
+	padding: 0;
+}
+.social-share.visible-defaults > .share-link:hover {
+	background-color: #797878;
+}
+
+.social-share.visible-defaults > .share-link img,
+.social-share.visible-defaults .open-share-panel-btn img {
+	width: 45px;
+	height: 35px;
+}
+
+.social-share.visible-defaults .open-share-panel-btn {
+	padding: 0;
+}
+.social-share.visible-defaults .share-button-panel {
+	height: 55px;
+}
+.social-share.visible-defaults .details-input-panel {
+	width: 150%;
+}
+
+.social-share.visible-defaults .details-input-panel input[type='tel'],
+.social-share.visible-defaults .details-input-panel input[type='email'] {
+	width: 40%;
+}
