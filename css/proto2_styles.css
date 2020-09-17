@@ -2,8 +2,18 @@
 	display: none;
 }
 
+.bodyText.section,
+.socialShare.section {
+	margin: 0 20px;
+}
+
+.body-text h1 {
+	margin: 20px 0 !important;
+}
+
 .socialShare .ui-component {
-	margin: 0 20px 20px;
+	margin: 0 auto 20px;
+	max-width: 1200px;
 	display: flex;
 	align-items: center;
 }
@@ -66,6 +76,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	opacity: 1;
+	z-index: 1;
 }
 
 .share-button-panel .share-link {
