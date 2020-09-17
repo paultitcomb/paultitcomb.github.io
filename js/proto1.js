@@ -1,5 +1,4 @@
 const encodedUrl = encodeURIComponent(window.location.href);
-const $shareBtn = document.querySelector('.open-share-panel-btn');
 const $socialShareContainer = document.querySelector('.social-share');
 const $shareBtnPanel = document.querySelector('.share-button-panel');
 const $detailsInputPanel = document.querySelector('.details-input-panel');
@@ -41,10 +40,19 @@ function launchShareSheet() {
 function handleSocialNetworkBtnClick(e) {
 	const $clicked = e.target;
 	const shareType = e.target.getAttribute('data-share-type');
-	launchSharePopup(shareType);
+	launchSharePopup(shareType, $clicked);
 }
 
-function openDetailsInputPanel() {
+function getBtnPos($clicked) {
+	const btnWidth = $clicked.offsetWidth;
+	const btnFromLeft = $clicked.offsetLeft;
+	const leftPos = btnFromLeft + btnWidth / 2;
+	return leftPos;
+}
+
+function openDetailsInputPanel($clicked) {
+	const leftPos = getBtnPos($clicked);
+	$detailsInputPanel.style.left = `${leftPos}px`;
 	$detailsInputPanel.classList.add('open');
 }
 
@@ -82,7 +90,7 @@ function handleDetailsSubmit() {
 	}
 }
 
-function launchSharePopup(shareType) {
+function launchSharePopup(shareType, $clicked) {
 	let url = '';
 
 	switch (shareType) {
@@ -105,13 +113,15 @@ function launchSharePopup(shareType) {
 			break;
 		case 'whatsapp':
 			$detailsInputPanel.setAttribute('data-share-type', shareType);
+			$emailInput.classList.add('hidden');
 			$phoneNumInput.classList.remove('hidden');
-			openDetailsInputPanel();
+			openDetailsInputPanel($clicked);
 			break;
 		case 'email':
 			$detailsInputPanel.setAttribute('data-share-type', shareType);
+			$phoneNumInput.classList.add('hidden');
 			$emailInput.classList.remove('hidden');
-			openDetailsInputPanel();
+			openDetailsInputPanel($clicked);
 			break;
 	}
 }
@@ -131,7 +141,6 @@ function openNewWindow(url) {
 	);
 }
 
-$shareBtn.addEventListener('click', handleShareBtnClick);
 $socialShareContainer.addEventListener('click', handleSocialNetworkBtnClick);
 $closePhoneInputBtn.addEventListener('click', closeDetailsInputPanel);
 $sendBtn.addEventListener('click', handleDetailsSubmit);
