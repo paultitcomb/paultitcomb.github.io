@@ -39,8 +39,13 @@ function launchShareSheet() {
 
 function handleSocialNetworkBtnClick(e) {
 	const $clicked = e.target;
-	const shareType = e.target.getAttribute('data-share-type');
-	launchSharePopup(shareType, $clicked);
+
+	if (supportsShareApi) {
+		launchShareSheet();
+	} else {
+		const shareType = e.target.getAttribute('data-share-type');
+		launchSharePopup(shareType, $clicked);
+	}
 }
 
 function getBtnPos($clicked) {
