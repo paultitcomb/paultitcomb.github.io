@@ -1,0 +1,188 @@
+.hidden {
+	display: none;
+}
+
+.bodyText.section,
+.socialShare.section {
+	margin: 0 20px;
+}
+
+.body-text h1 {
+	margin: 20px 0 !important;
+}
+
+.social-share {
+	display: inline-block;
+	position: fixed;
+	right: 0;
+	top: 50%;
+	transform: translate(50%, -50%);
+	transition: transform 0.1s ease-in-out;
+}
+
+.social-share.off-screen {
+	transform: translate(100%, -50%);
+}
+
+.social-share.open {
+	transform: translate(0, -50%);
+}
+
+.open-share-panel-btn {
+	border: 1px solid #fff;
+	color: #fff;
+	transform: rotate(-90deg) translateX(-50%);
+	transform-origin: 0 0;
+	text-transform: uppercase;
+	background-color: #da291c;
+	border-radius: 4px 4px 0 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100px;
+	height: 50px;
+	z-index: 1;
+}
+
+.open-share-panel-btn:hover {
+	background-color: #9a3324;
+}
+
+.share-button-panel {
+	width: 40px;
+	margin-left: 50px;
+	position: relative;
+	z-index: 2;
+	background-color: #bbb;
+}
+
+.share-link {
+	background-color: #bbb;
+	border: 0;
+	padding: 10px;
+	transform: scale(1);
+	transition: all 0.1s ease-in-out;
+}
+
+.share-link:hover {
+	position: relative;
+	z-index: 3;
+	transform: scale(1.2);
+	/* background-color: #797878; */
+}
+
+.open-share-panel-btn img,
+.share-link img,
+.share-link svg {
+	width: 100%;
+	height: 100%;
+	pointer-events: none;
+}
+
+.share-link svg path {
+	fill: #fff;
+}
+
+.social-share-facebook {
+	background-color: #1877f2;
+}
+
+.social-share-twitter {
+	background-color: #1da1f2;
+}
+
+.social-share-linkedin {
+	background-color: #0077b5;
+}
+
+.social-share-whatsapp {
+	background-color: #25d366;
+}
+
+.social-share-email {
+	background-color: #9a3324;
+}
+
+/* details for email/whatsapp shares */
+.details-input-panel {
+	display: flex;
+	align-items: center;
+	padding: 10px;
+	height: 100px;
+	position: absolute;
+	top: 50%;
+	right: 90px;
+	background: #bbb;
+	transform: translate(calc(100% + 90px), -50%);
+	transition: transform 0.1s ease-in-out;
+	z-index: 0;
+}
+
+.details-input-panel.open {
+	transform: translate(0, -50%);
+}
+
+.details-input-panel input[type='tel'],
+.details-input-panel input[type='email'] {
+	margin: 0 10px;
+	border-radius: 0;
+	border: 1px solid #797878;
+	height: 30px;
+	width: 150px;
+}
+.details-input-panel .send-btn {
+	height: 30px;
+	background-color: #da291c;
+	color: #fff;
+	border: 0;
+}
+.details-input-panel .send-btn:hover {
+	background-color: #9a3324;
+}
+.details-input-panel .close-detail-panel-btn {
+	width: 30px;
+	height: 30px;
+	margin-left: 10px;
+	border-radius: 50%;
+	border: 1px solid black;
+}
+
+.details-input-panel .close-detail-panel-btn:hover {
+	background-color: #797878;
+	color: #fff;
+}
+
+/* with default share buttons showing */
+.social-share.visible-defaults {
+	display: flex;
+	flex-direction: column;
+}
+.social-share.visible-defaults > .share-link {
+	padding: 0;
+}
+.social-share.visible-defaults > .share-link:hover {
+	background-color: #797878;
+}
+
+.social-share.visible-defaults > .share-link img,
+.social-share.visible-defaults .open-share-panel-btn img {
+	width: 45px;
+	height: 35px;
+}
+
+.social-share.visible-defaults .open-share-panel-btn {
+	padding: 0;
+}
+.social-share.visible-defaults .share-button-panel {
+	height: 55px;
+}
+.social-share.visible-defaults .details-input-panel {
+	width: 150%;
+}
+
+.social-share.visible-defaults .details-input-panel input[type='tel'],
+.social-share.visible-defaults .details-input-panel input[type='email'] {
+	width: 40%;
+}
