@@ -9,7 +9,7 @@ const $sendBtn = document.querySelector('.send-btn');
 const $closeDetailsPanelBtn = document.querySelector('.close-detail-panel-btn');
 const $shareByEmailBtn = document.querySelector('.email-share');
 const $hiddenEmailLink = document.querySelector('.hidden-email-link');
-const supportsShareApi = navigator.share !== undefined;
+const supportsShareApi = navigator.share !== undefined && isMobile();
 
 // Set popup position on screen
 const popupLeft = window.innerWidth / 2 - 800 / 2;
@@ -32,9 +32,10 @@ function isMobile() {
 }
 
 function handleShareBtnClick(e) {
-	if (supportsShareApi && isMobile()) {
+	if (supportsShareApi) {
 		launchShareSheet();
 	} else {
+		$socialShareContainer.classList.add('open-on-hover');
 		if ($detailsInputPanel.classList.contains('open')) {
 			closeDetailsPanel();
 		}
