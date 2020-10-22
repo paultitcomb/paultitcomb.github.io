@@ -35,7 +35,6 @@ function handleShareBtnClick(e) {
 	if (supportsShareApi) {
 		launchShareSheet();
 	} else {
-		$socialShareContainer.classList.add('open-on-hover');
 		if ($detailsInputPanel.classList.contains('open')) {
 			closeDetailsPanel();
 		}
@@ -148,10 +147,18 @@ function openNewWindow(url) {
 	);
 }
 
+function init() {
+	if (!supportsShareApi) {
+		$socialShareContainer.classList.add('open-on-hover');
+	}
+}
+
 $openSharePanelBtn.addEventListener('click', handleShareBtnClick);
 $socialShareContainer.addEventListener('click', handleSocialNetworkBtnClick);
 $closeDetailsPanelBtn.addEventListener('click', closeDetailsPanel);
 $sendBtn.addEventListener('click', handleDetailsSubmit);
+
+init();
 
 window.addEventListener('load', e => {
 	setTimeout(() => {
