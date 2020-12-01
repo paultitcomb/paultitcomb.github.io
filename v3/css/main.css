@@ -1442,15 +1442,11 @@ input[type='button'].btn-block {
 }
 @font-face {
 	font-family: 'Glyphicons Halflings';
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/sass-bootstrap/glyphicons-halflings-regular.eot');
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/sass-bootstrap/glyphicons-halflings-regular.eot?#iefix')
-			format('embedded-opentype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/sass-bootstrap/glyphicons-halflings-regular.woff')
-			format('woff'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/sass-bootstrap/glyphicons-halflings-regular.ttf')
-			format('truetype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/sass-bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular')
-			format('svg');
+	src: url('../../css/fonts/sass-bootstrap/glyphicons-halflings-regular.eot');
+	src: url('../../css/fonts/sass-bootstrap/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'),
+		url('../../css/fonts/sass-bootstrap/glyphicons-halflings-regular.woff') format('woff'),
+		url('../../css/fonts/sass-bootstrap/glyphicons-halflings-regular.ttf') format('truetype'),
+		url('../../css/fonts/sass-bootstrap/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
 }
 .glyphicon {
 	position: relative;
@@ -3482,15 +3478,11 @@ picture.is-broken img {
 	font-weight: normal;
 	font-display: auto;
 	font-style: normal;
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/icons/icomoon.eot') format('eot'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/icons/icomoon.woff2')
-			format('woff2'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/icons/icomoon.woff')
-			format('woff'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/icons/icomoon.ttf')
-			format('truetype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/icons/icomoon.svg#icomoon')
-			format('svg');
+	src: url('../../css/fonts/icons/icomoon.eot') format('eot'),
+		url('../../css/fonts/icons/icomoon.woff2') format('woff2'),
+		url('../../css/fonts/icons/icomoon.woff') format('woff'),
+		url('../../css/fonts/icons/icomoon.ttf') format('truetype'),
+		url('../../css/fonts/icons/icomoon.svg#icomoon') format('svg');
 }
 [class^='icon-'],
 [class*=' icon-'] {
@@ -3596,80 +3588,55 @@ picture.is-broken img {
 	font-weight: normal;
 	font-display: auto;
 	font-style: normal;
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/TradeGothicW02-BoldCn20.eot')
-			format('eot'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/TradeGothicW02-BoldCn20.woff2')
-			format('woff2'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/TradeGothicW02-BoldCn20.woff')
-			format('woff'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/TradeGothicW02-BoldCn20.ttf')
-			format('truetype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/TradeGothicW02-BoldCn20.svg#trade_gothic')
-			format('svg');
+	src: url('../../css/fonts/TradeGothicW02-BoldCn20.eot') format('eot'),
+		url('../../css/fonts/TradeGothicW02-BoldCn20.woff2') format('woff2'),
+		url('../../css/fonts/TradeGothicW02-BoldCn20.woff') format('woff'),
+		url('../../css/fonts/TradeGothicW02-BoldCn20.ttf') format('truetype'),
+		url('../../css/fonts/TradeGothicW02-BoldCn20.svg#trade_gothic') format('svg');
 }
 @font-face {
 	font-family: 'gill_sans_infant';
 	font-weight: normal;
 	font-display: auto;
 	font-style: normal;
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01.eot')
-			format('eot'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01.woff2')
-			format('woff2'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01.woff')
-			format('woff'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01.ttf')
-			format('truetype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01.svg#gill_sans_infant')
-			format('svg');
+	src: url('../../css/fonts/GillSansInfantW01.eot') format('eot'),
+		url('../../css/fonts/GillSansInfantW01.woff2') format('woff2'),
+		url('../../css/fonts/GillSansInfantW01.woff') format('woff'),
+		url('../../css/fonts/GillSansInfantW01.ttf') format('truetype'),
+		url('../../css/fonts/GillSansInfantW01.svg#gill_sans_infant') format('svg');
 }
 @font-face {
 	font-family: 'gill_sans_infant_bold';
 	font-weight: normal;
 	font-display: auto;
 	font-style: normal;
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Bold.eot')
-			format('eot'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Bold.woff2')
-			format('woff2'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Bold.woff')
-			format('woff'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Bold.ttf')
-			format('truetype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Bold.svg#gill_sans_infant_bold')
-			format('svg');
+	src: url('../../css/fonts/GillSansInfantW01-Bold.eot') format('eot'),
+		url('../../css/fonts/GillSansInfantW01-Bold.woff2') format('woff2'),
+		url('../../css/fonts/GillSansInfantW01-Bold.woff') format('woff'),
+		url('../../css/fonts/GillSansInfantW01-Bold.ttf') format('truetype'),
+		url('../../css/fonts/GillSansInfantW01-Bold.svg#gill_sans_infant_bold') format('svg');
 }
 @font-face {
 	font-family: 'gill_sans_infant_bold_italic';
 	font-weight: normal;
 	font-display: auto;
 	font-style: normal;
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-BoldIt.eot')
-			format('eot'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-BoldIt.woff2')
-			format('woff2'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-BoldIt.woff')
-			format('woff'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-BoldIt.ttf')
-			format('truetype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-BoldIt.svg#gill_sans_infant_bold_italic')
-			format('svg');
+	src: url('../../css/fonts/GillSansInfantW01-BoldIt.eot') format('eot'),
+		url('../../css/fonts/GillSansInfantW01-BoldIt.woff2') format('woff2'),
+		url('../../css/fonts/GillSansInfantW01-BoldIt.woff') format('woff'),
+		url('../../css/fonts/GillSansInfantW01-BoldIt.ttf') format('truetype'),
+		url('../../css/fonts/GillSansInfantW01-BoldIt.svg#gill_sans_infant_bold_italic') format('svg');
 }
 @font-face {
 	font-family: 'gill_sans_infant_italic';
 	font-weight: normal;
 	font-display: auto;
 	font-style: normal;
-	src: url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Italic.eot')
-			format('eot'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Italic.woff2')
-			format('woff2'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Italic.woff')
-			format('woff'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Italic.ttf')
-			format('truetype'),
-		url('https://www.savethechildren.org.uk/etc/clientlibs/ui/main/dist/css/fonts/GillSansInfantW01-Italic.svg#gill_sans_infant_italic')
-			format('svg');
+	src: url('../../css/fonts/GillSansInfantW01-Italic.eot') format('eot'),
+		url('../../css/fonts/GillSansInfantW01-Italic.woff2') format('woff2'),
+		url('../../css/fonts/GillSansInfantW01-Italic.woff') format('woff'),
+		url('../../css/fonts/GillSansInfantW01-Italic.ttf') format('truetype'),
+		url('../../css/fonts/GillSansInfantW01-Italic.svg#gill_sans_infant_italic') format('svg');
 }
 .scrollbar-measure {
 	width: 100px;
