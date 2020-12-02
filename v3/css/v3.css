@@ -20,22 +20,23 @@
 }
 
 .open-share-panel-btn {
-	width: 80px;
-	height: 50px;
-	margin: 0;
-	padding: 10px;
-	position: absolute;
-	top: 50%;
-	right: 0;
-	transform: translate(0, -50%);
-	z-index: 1;
 	border: 1px solid #fff;
 	color: #fff;
+	transform: rotate(-90deg) translateX(-50%);
+	transform-origin: 0 0;
+	text-transform: uppercase;
 	background-color: #da291c;
-	display: flex;
-	align-items: center;
-	transition: all 0.1s ease-in-out;
+	border-radius: 4px 4px 0 0;
+	margin: 0;
+	padding: 0;
+	position: absolute;
+	left: 0;
+	top: 50%;
+	width: 100px;
+	height: 50px;
+	z-index: 1;
 }
+
 .open-share-panel-btn.off-screen {
 	transform: translate(100%, -50%);
 }
