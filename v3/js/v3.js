@@ -174,7 +174,7 @@ function openNewWindow(url) {
 	);
 }
 
-$socialShareContainer.addEventListener('click', handleSocialNetworkBtnClick);
+$socialShareContainer.addEventListener('click', handleShareBtnClick);
 $closeDetailsPanelBtn.addEventListener('click', e => {
 	toggleDetailsPanel('close');
 });
