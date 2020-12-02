@@ -35,8 +35,10 @@ function isMobile() {
 }
 
 function handleShareBtnClick(e) {
-	if (supportsShareApi && isMobile()) {
+	if (useWebShare) {
 		launchShareSheet();
+	} else {
+		handleSocialNetworkBtnClick(e.target);
 	}
 }
 
@@ -52,9 +54,8 @@ function launchShareSheet() {
 		.catch(console.error);
 }
 
-function handleSocialNetworkBtnClick(e) {
-	const $clicked = e.target;
-	const shareType = e.target.getAttribute('data-share-type');
+function handleSocialNetworkBtnClick($btn) {
+	const shareType = $btn.getAttribute('data-share-type');
 	launchSharePopup(shareType);
 }
 
