@@ -46,7 +46,6 @@
 
 .share-button-panel {
 	width: 40px;
-	margin-left: 40px;
 	position: relative;
 	z-index: 2;
 	background-color: #bbb;
@@ -101,39 +100,57 @@
 	background-color: #25d366;
 }
 
-.social-share-email {
+.social-share-email,
+.social-share-clipboard {
 	background-color: #9a3324;
+}
+
+.social-share-clipboard {
+	padding: 7px;
 }
 
 /* details for email/whatsapp shares */
 .details-input-panel {
+	font-family: 'gill_sans_infant';
 	display: flex;
-	align-items: center;
+	flex-direction: column;
 	padding: 10px;
 	height: 100px;
 	position: absolute;
 	top: 50%;
-	right: 90px;
+	right: 0;
 	background: #bbb;
-	transform: translate(calc(100% + 90px), -50%);
+	transform: translate(100%, -50%);
 	transition: transform 0.1s ease-in-out;
 	z-index: 0;
 }
 
 .details-input-panel.open {
-	transform: translate(0, -50%);
+	transform: translate(-40px, -50%);
+}
+
+.details-input-panel .details-title {
+	font-size: 1.4rem;
+	margin: 10px;
+}
+
+.details-input-panel .input-wrapper {
+	display: flex;
+	flex-direction: row;
+	margin-left: 10px;
 }
 
 .details-input-panel input[type='tel'],
 .details-input-panel input[type='email'] {
-	margin: 0 10px;
 	border-radius: 0;
 	border: 1px solid #797878;
 	height: 30px;
 	width: 150px;
+	padding: 0 5px;
 }
 .details-input-panel .send-btn {
 	height: 30px;
+	margin-right: 10px;
 	background-color: #da291c;
 	color: #fff;
 	border: 0;
@@ -142,16 +159,40 @@
 	background-color: #9a3324;
 }
 .details-input-panel .close-detail-panel-btn {
-	width: 30px;
-	height: 30px;
-	margin-left: 10px;
-	border-radius: 50%;
-	border: 1px solid black;
+	width: 20px;
+	height: 20px;
+	border: 1px solid #333;
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	text-align: center;
+	padding: 0;
 }
 
 .details-input-panel .close-detail-panel-btn:hover {
 	background-color: #797878;
 	color: #fff;
+}
+
+.link-copied-msg {
+	position: absolute;
+	bottom: 0;
+	right: 0;
+	background-color: #bbb;
+	display: flex;
+	height: 43px;
+	transform: translateX(100%);
+	transition: transform 0.1s ease-in-out;
+}
+
+.link-copied-msg.open {
+	transform: translateX(0);
+}
+
+.link-copied-msg p {
+	margin: 0 50px 0 10px;
+	white-space: nowrap;
+	line-height: 43px;
 }
 
 /* with default share buttons showing */

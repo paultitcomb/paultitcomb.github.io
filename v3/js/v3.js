@@ -3,12 +3,14 @@ const $socialShareContainer = document.querySelector('.social-share');
 const $shareBtn = document.querySelector('.open-share-panel-btn');
 const $shareBtnPanel = document.querySelector('.share-button-panel');
 const $detailsInputPanel = document.querySelector('.details-input-panel');
+const $detailsTitle = document.querySelector('.details-title');
 const $phoneNumInput = document.querySelector('.phone-num-input');
 const $emailInput = document.querySelector('.email-input');
 const $sendBtn = document.querySelector('.send-btn');
 const $closeDetailsPanelBtn = document.querySelector('.close-detail-panel-btn');
 const $shareByEmailBtn = document.querySelector('.email-share');
 const $hiddenEmailLink = document.querySelector('.hidden-email-link');
+const $linkCopiedMsg = document.querySelector('.link-copied-msg');
 const supportsShareApi = navigator.share !== undefined;
 const useWebShare = supportsShareApi && isMobile();
 
@@ -56,19 +58,13 @@ function handleSocialNetworkBtnClick(e) {
 	launchSharePopup(shareType);
 }
 
-function openDetailsInputPanel() {
-	$detailsInputPanel.classList.add('open');
+function showHideUIElements(elToShow, elToHide) {
+	elToHide.classList.add('hidden');
+	elToShow.classList.remove('hidden');
 }
 
-function closeDetailsPanel() {
-	$detailsInputPanel.classList.remove('open');
-	$phoneNumInput.value = '';
-	$emailInput.value = '';
-	$detailsInputPanel.removeAttribute('data-share-type');
-	setTimeout(() => {
-		$phoneNumInput.classList.add('hidden');
-		$emailInput.classList.add('hidden');
-	}, 300);
+function toggleDetailsPanel(state) {
+	state === 'open' ? $detailsInputPanel.classList.add('open') : $detailsInputPanel.classList.remove('open');
 }
 
 function handleDetailsSubmit() {
@@ -117,13 +113,47 @@ function launchSharePopup(shareType) {
 			break;
 		case 'whatsapp':
 			$detailsInputPanel.setAttribute('data-share-type', shareType);
-			$phoneNumInput.classList.remove('hidden');
-			openDetailsInputPanel();
+			if ($detailsInputPanel.classList.contains('open')) {
+				toggleDetailsPanel('close');
+				setTimeout(() => {
+					$detailsTitle.textContent = 'Share link via Whatsapp';
+					showHideUIElements($phoneNumInput, $emailInput);
+					toggleDetailsPanel('open');
+				}, 150);
+			} else {
+				$detailsTitle.textContent = 'Share link via Whatsapp';
+				showHideUIElements($phoneNumInput, $emailInput);
+				toggleDetailsPanel('open');
+			}
 			break;
 		case 'email':
 			$detailsInputPanel.setAttribute('data-share-type', shareType);
-			$emailInput.classList.remove('hidden');
-			openDetailsInputPanel();
+			if ($detailsInputPanel.classList.contains('open')) {
+				toggleDetailsPanel('close');
+				setTimeout(() => {
+					$detailsTitle.textContent = 'Share link via email';
+					showHideUIElements($emailInput, $phoneNumInput);
+					toggleDetailsPanel('open');
+				}, 150);
+			} else {
+				$detailsTitle.textContent = 'Share link via email';
+				showHideUIElements($emailInput, $phoneNumInput);
+				toggleDetailsPanel('open');
+			}
+			break;
+		case 'copy-link':
+			const pageUrl = window.location.href;
+			navigator.clipboard
+				.writeText(pageUrl)
+				.then(() => {
+					$linkCopiedMsg.classList.add('open');
+					setTimeout(() => {
+						$linkCopiedMsg.classList.remove('open');
+					}, 2500);
+				})
+				.catch(err => {
+					console.error(err);
+				});
 			break;
 	}
 }
@@ -144,7 +174,9 @@ function openNewWindow(url) {
 }
 
 $socialShareContainer.addEventListener('click', handleSocialNetworkBtnClick);
-$closeDetailsPanelBtn.addEventListener('click', closeDetailsPanel);
+$closeDetailsPanelBtn.addEventListener('click', e => {
+	toggleDetailsPanel('close');
+});
 $sendBtn.addEventListener('click', handleDetailsSubmit);
 
 window.addEventListener('load', e => {
