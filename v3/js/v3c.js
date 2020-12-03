@@ -13,6 +13,12 @@ const $hiddenEmailLink = document.querySelector('.hidden-email-link');
 const $linkCopiedMsg = document.querySelector('.link-copied-msg');
 const supportsShareApi = navigator.share !== undefined;
 const useWebShare = supportsShareApi && isMobile();
+const observerOptions = {
+	root: null,
+	rootMargin: '0px',
+	threshold: 1.0
+};
+let observerInitialised = false;
 
 // Set popup position on screen
 const popupLeft = window.innerWidth / 2 - 800 / 2;
@@ -38,9 +44,6 @@ function handleShareBtnClick(e) {
 	if (useWebShare) {
 		launchShareSheet();
 	} else {
-		if ($detailsInputPanel.classList.contains('open')) {
-			toggleDetailsPanel('close');
-		}
 		toggleDrawerOpen();
 	}
 }
@@ -182,12 +185,33 @@ function openNewWindow(url) {
 	);
 }
 
+function addIntersectionObserver() {
+	let observer = new IntersectionObserver(observerCallback, observerOptions);
+	observer.observe(document.querySelector('.social-share-open-trigger'));
+}
+
+function observerCallback(entries, observer) {
+	entries.forEach(entry => {
+		if (observerInitialised) {
+			entry.isIntersecting
+				? $socialShareContainer.classList.add('fully-open')
+				: $socialShareContainer.classList.remove('fully-open');
+		}
+
+		if (!observerInitialised) {
+			observerInitialised = true;
+		}
+	});
+}
+
 $shareBtn.addEventListener('click', handleShareBtnClick);
 $shareBtnPanel.addEventListener('click', handleSocialNetworkBtnClick);
 $closeDetailsPanelBtn.addEventListener('click', e => {
 	toggleDetailsPanel('close');
 });
 $sendBtn.addEventListener('click', handleDetailsSubmit);
+
+addIntersectionObserver();
 
 window.addEventListener('load', e => {
 	if (useWebShare) {
