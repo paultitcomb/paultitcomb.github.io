@@ -24,7 +24,7 @@
 	transform: translate(50%, -50%);
 }
 
-.social-share:hover,
+.social-share.desktop-version:hover,
 .social-share.fully-open {
 	transform: translate(0, -50%);
 }

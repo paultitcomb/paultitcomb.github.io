@@ -215,10 +215,12 @@ addIntersectionObserver();
 
 window.addEventListener('load', e => {
 	if (useWebShare) {
+		$socialShareContainer.classList.add('mobile-version');
 		setTimeout(() => {
 			$socialShareContainer.classList.add('half-open');
 		}, 1000);
 	} else {
+		$socialShareContainer.classList.add('desktop-version');
 		$socialShareContainer.classList.add('fully-open');
 		setTimeout(() => {
 			$socialShareContainer.classList.add('half-open');
