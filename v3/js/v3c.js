@@ -186,8 +186,10 @@ function openNewWindow(url) {
 }
 
 function addIntersectionObserver() {
-	let observer = new IntersectionObserver(observerCallback, observerOptions);
-	observer.observe(document.querySelector('.social-share-open-trigger'));
+	if (!useWebShare) {
+		let observer = new IntersectionObserver(observerCallback, observerOptions);
+		observer.observe(document.querySelector('.social-share-open-trigger'));
+	}
 }
 
 function observerCallback(entries, observer) {
