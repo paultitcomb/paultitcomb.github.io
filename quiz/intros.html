@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<title>90s Intros</title>
+		<title>Intros through the decades</title>
 		<style>
 			body {
 				font-family: sans-serif;
@@ -53,7 +53,7 @@
 		</style>
 	</head>
 	<body>
-		<h1>90s Intros</h1>
+		<h1>Intros through the decades</h1>
 		<button class="reveal-answers-btn">Reveal answers</button>
 		<div class="audio-wrapper">
 			<span class="track-num">Track: </span>
@@ -63,43 +63,43 @@
 			<ul>
 				<li>
 					<button data-music-file="1.mp3" class="play-btn">Intro 1</button
-					><span class="answer">Smells like Teen Spirit - Nirvana (1991)</span>
+					><span class="answer">Jailhouse Rock - Elvis (1957)</span>
 				</li>
 				<li>
 					<button data-music-file="2.mp3" class="play-btn">Intro 2</button
-					><span class="answer">Shine - Aswad (1994)</span>
+					><span class="answer">Daytripper - The Beatles (1965)</span>
 				</li>
 				<li>
 					<button data-music-file="3.mp3" class="play-btn">Intro 3</button
-					><span class="answer">...Baby One More Time - Britney Spears (1999)</span>
+					><span class="answer">Mamma Mia - ABBA (1975)</span>
 				</li>
 				<li>
 					<button data-music-file="4.mp3" class="play-btn">Intro 4</button
-					><span class="answer">Saturday Night - Whigfield (1994)</span>
+					><span class="answer">Holiday - Madonna (1983)</span>
 				</li>
 				<li>
 					<button data-music-file="5.mp3" class="play-btn">Intro 5</button
-					><span class="answer">Ready or Not - The Fugees (1996)</span>
+					><span class="answer">Smells Like Teen Spirit - Nirvana (1991)</span>
 				</li>
 				<li>
 					<button data-music-file="6.mp3" class="play-btn">Intro 6</button
-					><span class="answer">C'est La Vie - B*Witched (1998)</span>
+					><span class="answer">Can't Get You Out of my Head - Kylie (2001)</span>
 				</li>
 				<li>
 					<button data-music-file="7.mp3" class="play-btn">Intro 7</button
-					><span class="answer">Black Hole Sun - Soundgarden (1994)</span>
+					><span class="answer">Uptown Funk - Mark Ronson featuring Bruno Mars (2014)</span>
 				</li>
 				<li>
 					<button data-music-file="8.mp3" class="play-btn">Intro 8</button
-					><span class="answer">Summertime - DJ Jazzy Jeff and the Fresh Prince (1991)</span>
+					><span class="answer">Johnny B Goode - Chuck Berry (1958)</span>
 				</li>
 				<li>
 					<button data-music-file="9.mp3" class="play-btn">Intro 9</button
-					><span class="answer">Everybody get up - 5ive (1998)</span>
+					><span class="answer">Shout - Lulu (1964)</span>
 				</li>
 				<li>
 					<button data-music-file="10.mp3" class="play-btn">Intro 10</button
-					><span class="answer">Place your hands - Reef (1996)</span>
+					><span class="answer">Roxanne - The Police (1978)</span>
 				</li>
 			</ul>
 		</div>
@@ -113,7 +113,7 @@
 			const revealAnswersBtn = document.querySelector('.reveal-answers-btn');
 
 			// event listeners
-			playBtns.addEventListener('click', e => {
+			playBtns.addEventListener('click', (e) => {
 				const fileName = e.target.getAttribute('data-music-file');
 				const trackNumVal = fileName.replace('.mp3', '');
 				trackNum.textContent = `Track ${trackNumVal}: `;
@@ -122,8 +122,8 @@
 				audioTag.play();
 			});
 
-			revealAnswersBtn.addEventListener('click', e => {
-				answers.forEach(answer => {
+			revealAnswersBtn.addEventListener('click', (e) => {
+				answers.forEach((answer) => {
 					answer.classList.add('show');
 				});
 			});
