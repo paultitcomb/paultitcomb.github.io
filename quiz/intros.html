@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>90s Intros</title>
+		<style>
+			body {
+				font-family: sans-serif;
+				font-size: 10px;
+				padding: 20px;
+			}
+
+			h1 {
+				font-size: 2rem;
+				margin: 10px 0;
+			}
+
+			ul {
+				list-style: none;
+				padding: 0;
+				margin: 0;
+			}
+
+			.reveal-answers-btn {
+				margin: 20px 0;
+			}
+
+			.track-num {
+				font-size: 2rem;
+				margin-right: 20px;
+			}
+
+			.audio-wrapper {
+				margin-bottom: 30px;
+				display: flex;
+				align-items: center;
+			}
+
+			.play-btns-wrapper li {
+				margin-bottom: 30px;
+			}
+
+			.answer {
+				margin-left: 30px;
+				font-size: 1rem;
+				display: none;
+			}
+
+			.answer.show {
+				display: inline-block;
+			}
+		</style>
+	</head>
+	<body>
+		<h1>90s Intros</h1>
+		<button class="reveal-answers-btn">Reveal answers</button>
+		<div class="audio-wrapper">
+			<span class="track-num">Track: </span>
+			<audio src="" class="music-player" controls></audio>
+		</div>
+		<div class="play-btns-wrapper">
+			<ul>
+				<li>
+					<button data-music-file="1.mp3" class="play-btn">Intro 1</button
+					><span class="answer">Smells like Teen Spirit - Nirvana (1991)</span>
+				</li>
+				<li>
+					<button data-music-file="2.mp3" class="play-btn">Intro 2</button
+					><span class="answer">Shine - Aswad (1994)</span>
+				</li>
+				<li>
+					<button data-music-file="3.mp3" class="play-btn">Intro 3</button
+					><span class="answer">...Baby One More Time - Britney Spears (1999)</span>
+				</li>
+				<li>
+					<button data-music-file="4.mp3" class="play-btn">Intro 4</button
+					><span class="answer">Saturday Night - Whigfield (1994)</span>
+				</li>
+				<li>
+					<button data-music-file="5.mp3" class="play-btn">Intro 5</button
+					><span class="answer">Ready or Not - The Fugees (1996)</span>
+				</li>
+				<li>
+					<button data-music-file="6.mp3" class="play-btn">Intro 6</button
+					><span class="answer">C'est La Vie - B*Witched (1998)</span>
+				</li>
+				<li>
+					<button data-music-file="7.mp3" class="play-btn">Intro 7</button
+					><span class="answer">Black Hole Sun - Soundgarden (1994)</span>
+				</li>
+				<li>
+					<button data-music-file="8.mp3" class="play-btn">Intro 8</button
+					><span class="answer">Summertime - DJ Jazzy Jeff and the Fresh Prince (1991)</span>
+				</li>
+				<li>
+					<button data-music-file="9.mp3" class="play-btn">Intro 9</button
+					><span class="answer">Everybody get up - 5ive (1998)</span>
+				</li>
+				<li>
+					<button data-music-file="10.mp3" class="play-btn">Intro 10</button
+					><span class="answer">Place your hands - Reef (1996)</span>
+				</li>
+			</ul>
+		</div>
+
+		<script>
+			const pathRoot = './music/';
+			const audioTag = document.querySelector('.music-player');
+			const trackNum = document.querySelector('.track-num');
+			const playBtns = document.querySelector('.play-btns-wrapper');
+			const answers = document.querySelectorAll('.answer');
+			const revealAnswersBtn = document.querySelector('.reveal-answers-btn');
+
+			// event listeners
+			playBtns.addEventListener('click', e => {
+				const fileName = e.target.getAttribute('data-music-file');
+				const trackNumVal = fileName.replace('.mp3', '');
+				trackNum.textContent = `Track ${trackNumVal}: `;
+				const fullPath = `${pathRoot}${fileName}`;
+				audioTag.src = fullPath;
+				audioTag.play();
+			});
+
+			revealAnswersBtn.addEventListener('click', e => {
+				answers.forEach(answer => {
+					answer.classList.add('show');
+				});
+			});
+		</script>
+	</body>
+</html>
