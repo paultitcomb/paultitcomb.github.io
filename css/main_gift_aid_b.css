@@ -12652,7 +12652,6 @@ label.textfield.textfield-card-code {
 	left: 0;
 	z-index: 9999;
 	padding: 3vh 0 3vmin;
-	overflow: hidden;
 }
 .donate-pod-panel-overlay h2 {
 	margin-top: 0;
@@ -12828,11 +12827,9 @@ label.textfield.textfield-card-code {
 	position: absolute;
 	left: 0;
 	top: 0;
-	width: 100%;
-	height: 100%;
+	width: 80%;
 	padding: inherit;
-	transform: translateX(100%);
-	transition: all 0.2s ease-in-out;
+	box-shadow: 1px 1px 6px rgba(0, 0, 0, 0.6);
 }
 
 .gift-aid-explanation.open {
