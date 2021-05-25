@@ -45,16 +45,16 @@
 			</div>
 		</form>
 		<script>
-			const $form = document.querySelector('.form-el');
-			const $rbw = document.querySelector('.radio-btns-wrapper');
-			const $taw = document.querySelector('.text-area-wrapper');
+			var $form = document.querySelector('.form-el');
+			var $rbw = document.querySelector('.radio-btns-wrapper');
+			var $taw = document.querySelector('.text-area-wrapper');
 
 			function displayFormHeight() {
 				console.log($form.offsetHeight);
 			}
 
 			function toggleTextArea(e) {
-				const $btn = e.target;
+				var $btn = e.target;
 
 				if ($btn.name === 'yes_no') {
 					$btn.value === 'yes' ? $taw.classList.remove('hidden') : $taw.classList.add('hidden');
@@ -67,18 +67,18 @@
 			// set up mutation observer
 
 			// Options for the observer (which mutations to observe)
-			const config = { attributes: true, childList: false, subtree: true };
+			var config = { attributes: true, childList: false, subtree: true };
 
 			// Callback function to execute when mutations are observed
-			const callback = function (mutationsList, observer) {
+			var callback = function (mutationsList, observer) {
 				// Use traditional 'for loops' for IE 11
-				for (const mutation of mutationsList) {
+				for (var mutation of mutationsList) {
 					displayFormHeight();
 				}
 			};
 
 			// Create an observer instance linked to the callback function
-			const observer = new MutationObserver(callback);
+			var observer = new MutationObserver(callback);
 
 			// Start observing the target node for configured mutations
 			observer.observe($form, config);
