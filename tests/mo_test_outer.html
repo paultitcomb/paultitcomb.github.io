@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Iframe parent page</title>
+		<style>
+			body {
+				padding: 0;
+				margin: 0;
+				font-family: sans-serif;
+			}
+
+			.iframe-wrapper {
+				width: 60%;
+				margin: 5% auto 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="iframe-wrapper">
+			<iframe
+				src="https://paultitcomb.github.io/tests/mo_resize_test.html"
+				frameborder="0"
+				style="border: 0px; width: 100%; overflow: hidden"
+				class="pledge-form"
+			></iframe>
+		</div>
+		<script type="text/javascript">
+			// this is needed to make the iframe the correct size and stop the scrollbars
+			const $iframe = document.querySelector('.pledge-form');
+
+			function resizeIframe(heightStr) {
+				const height = heightStr.replace('iframeHeight-', '');
+				$iframe.style.height = height + 'px';
+			}
+
+			window.addEventListener('message', function (e) {
+				const msg = e.data;
+
+				console.log('message received', msg);
+
+				// if it is a message about the iframe height - resize the iframe
+				if (msg.includes('iframeHeight-')) {
+					resizeIframe(msg);
+				}
+			});
+		</script>
+	</body>
+</html>
