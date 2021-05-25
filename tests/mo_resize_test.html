@@ -72,7 +72,8 @@
 			// Callback function to execute when mutations are observed
 			var callback = function (mutationsList, observer) {
 				// Use traditional 'for loops' for IE 11
-				for (var mutation of mutationsList) {
+				for (var index = 0; index < mutationsList.length; index++) {
+					// var element = array[index];
 					displayFormHeight();
 				}
 			};
