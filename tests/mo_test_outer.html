@@ -46,7 +46,7 @@
 				console.log('message received', msg);
 
 				// if it is a message about the iframe height - resize the iframe
-				if (msg.includes('iframeHeight-')) {
+				if (msg.indexOf('iframeHeight-') !== -1) {
 					resizeIframe(msg);
 				}
 			});
