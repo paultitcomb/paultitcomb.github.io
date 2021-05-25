@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="robots" content="noindex, nofollow" />
+		<title>Mutation Observer resize test</title>
+		<style>
+			body {
+				margin: 0;
+				padding: 5%;
+				font-family: sans-serif;
+			}
+
+			form {
+				padding: 2%;
+				border: 1px solid black;
+			}
+
+			label {
+				display: block;
+				margin-bottom: 10px;
+			}
+
+			.hidden {
+				display: none;
+			}
+
+			.question {
+				margin-bottom: 5%;
+			}
+		</style>
+	</head>
+	<body>
+		<form action="" class="form-el">
+			<div class="question radio-btns-wrapper">
+				<p>Show the text area?</p>
+				<label for="yes-option"><input type="radio" name="yes_no" id="yes-option" value="yes" />Yes</label>
+				<label for="no-option"><input type="radio" name="yes_no" id="no-option" value="no" />No</label>
+			</div>
+			<div class="question text-area-wrapper hidden">
+				<label for="hidden-textarea">This is a textarea</label>
+				<textarea name="hidden_textarea" id="hidden-textarea" cols="30" rows="10"></textarea>
+			</div>
+		</form>
+		<script>
+			const $form = document.querySelector('.form-el');
+			const $rbw = document.querySelector('.radio-btns-wrapper');
+			const $taw = document.querySelector('.text-area-wrapper');
+
+			function displayFormHeight() {
+				console.log($form.offsetHeight);
+			}
+
+			function toggleTextArea(e) {
+				const $btn = e.target;
+
+				if ($btn.name === 'yes_no') {
+					$btn.value === 'yes' ? $taw.classList.remove('hidden') : $taw.classList.add('hidden');
+					// displayFormHeight();
+				}
+			}
+
+			$rbw.addEventListener('change', toggleTextArea);
+
+			// set up mutation observer
+
+			// Options for the observer (which mutations to observe)
+			const config = { attributes: true, childList: false, subtree: true };
+
+			// Callback function to execute when mutations are observed
+			const callback = function (mutationsList, observer) {
+				// Use traditional 'for loops' for IE 11
+				for (const mutation of mutationsList) {
+					displayFormHeight();
+				}
+			};
+
+			// Create an observer instance linked to the callback function
+			const observer = new MutationObserver(callback);
+
+			// Start observing the target node for configured mutations
+			observer.observe($form, config);
+		</script>
+	</body>
+</html>
