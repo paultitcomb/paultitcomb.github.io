@@ -48,9 +48,16 @@
 			var $form = document.querySelector('.form-el');
 			var $rbw = document.querySelector('.radio-btns-wrapper');
 			var $taw = document.querySelector('.text-area-wrapper');
+			var $parentWindow = window.parent;
+			var formHeight = 0;
+			var moConfig = { attributes: true, childList: false, subtree: true };
 
-			function displayFormHeight() {
-				console.log($form.offsetHeight);
+			function checkFormHeight() {
+				var currentHeight = $form.offsetHeight;
+				if (currentHeight !== formHeight) {
+					sendMsgToParentWindow('iframeHeight-' + currentHeight);
+					formHeight = currentHeight;
+				}
 			}
 
 			function toggleTextArea(e) {
@@ -58,31 +65,33 @@
 
 				if ($btn.name === 'yes_no') {
 					$btn.value === 'yes' ? $taw.classList.remove('hidden') : $taw.classList.add('hidden');
-					// displayFormHeight();
+					// checkFormHeight();
 				}
 			}
 
-			$rbw.addEventListener('change', toggleTextArea);
-
-			// set up mutation observer
-
-			// Options for the observer (which mutations to observe)
-			var config = { attributes: true, childList: false, subtree: true };
+			function sendMsgToParentWindow(msg) {
+				$parentWindow.postMessage(msg, '*');
+			}
 
 			// Callback function to execute when mutations are observed
-			var callback = function (mutationsList, observer) {
+			function moCallback(mutationsList, observer) {
 				// Use traditional 'for loops' for IE 11
 				for (var index = 0; index < mutationsList.length; index++) {
 					// var element = array[index];
-					displayFormHeight();
+					checkFormHeight();
 				}
-			};
+			}
+
+			// Event listeners ========
+			$rbw.addEventListener('change', toggleTextArea);
 
 			// Create an observer instance linked to the callback function
-			var observer = new MutationObserver(callback);
+			var observer = new MutationObserver(moCallback);
 
 			// Start observing the target node for configured mutations
-			observer.observe($form, config);
+			observer.observe($form, moConfig);
+
+			window.addEventListener('load', e => {});
 		</script>
 	</body>
 </html>
