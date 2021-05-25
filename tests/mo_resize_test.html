@@ -95,7 +95,7 @@
 			// Start observing the target node for configured mutations
 			observer.observe($form, moConfig);
 
-			window.addEventListener('load', e => {
+			window.addEventListener('load', function (e) {
 				checkFormHeight();
 			});
 		</script>
