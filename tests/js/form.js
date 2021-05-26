@@ -440,7 +440,7 @@
 	observer.observe($formContainer, { attributes: true, childList: false, subtree: true });
 
 	// start loading the google recaptcha library
-	loadCaptchaLib();
+	// loadCaptchaLib();
 
 	// once the page has loaded send a message to the parent window to tell it what height to set the iframe
 	window.addEventListener('load', e => {
