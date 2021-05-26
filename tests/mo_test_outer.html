@@ -16,6 +16,18 @@
 				font-family: sans-serif;
 			}
 
+			#header {
+				background-color: #f9d639;
+				height: 33vh;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+			}
+
+			h1 {
+				font-size: 4rem;
+			}
+
 			.iframe-wrapper {
 				width: 60%;
 				margin: 5% auto 0;
@@ -23,6 +35,7 @@
 		</style>
 	</head>
 	<body>
+		<header id="header"><h1>Summer of Play</h1></header>
 		<div class="iframe-wrapper">
 			<iframe
 				src="https://paultitcomb.github.io/tests/mo_resize_test.html"
@@ -34,20 +47,33 @@
 		<script type="text/javascript">
 			// this is needed to make the iframe the correct size and stop the scrollbars
 			const $iframe = document.querySelector('.pledge-form');
+			const $pageHeader = document.querySelector('#header');
 
 			function resizeIframe(heightStr) {
 				const height = heightStr.replace('iframeHeight-', '');
 				$iframe.style.height = height + 'px';
 			}
 
+			function scrollToTop(elYPos) {
+				const headerHeight = $pageHeader.offsetHeight;
+				// add the y position of the top of the iframe to the distance the form element is from the top, to the amount scrolled down the page
+				const elTop = $iframe.getBoundingClientRect().top + elYPos + window.scrollY;
+				const yPos = elTop - headerHeight;
+				window.scrollTo(0, yPos);
+			}
+
 			window.addEventListener('message', function (e) {
 				const msg = e.data;
 
-				console.log('message received', msg);
-
 				// if it is a message about the iframe height - resize the iframe
-				if (msg.indexOf('iframeHeight-') !== -1) {
+				if (msg.includes('iframeHeight-')) {
 					resizeIframe(msg);
+				}
+
+				// this tells the parent window to scroll to the top
+				if (msg.includes('scrollTo-')) {
+					const elYPos = msg.replace('scrollTo-', '');
+					scrollToTop(parseInt(elYPos));
 				}
 			});
 		</script>

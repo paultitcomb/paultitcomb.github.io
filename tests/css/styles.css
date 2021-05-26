@@ -1,0 +1,200 @@
+* {
+	box-sizing: border-box;
+}
+
+html {
+	font-size: 10px;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	font-family: sans-serif;
+}
+
+p {
+	margin: 0;
+}
+
+.hidden {
+	display: none;
+}
+
+@font-face {
+	font-family: 'ITC Avant Garde Std Md';
+	src: url('fonts/ITCAvantGardeStd-Md.eot');
+	src: local('ITC Avant Garde Gothic Std Medium'), local('ITCAvantGardeStd-Md'),
+		url('fonts/ITCAvantGardeStd-Md.eot?#iefix') format('embedded-opentype'),
+		url('fonts/ITCAvantGardeStd-Md.woff2') format('woff2'), url('fonts/ITCAvantGardeStd-Md.woff') format('woff'),
+		url('fonts/ITCAvantGardeStd-Md.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+}
+
+.form-container {
+	font-family: 'ITC Avant Garde Std Md', sans-serif;
+	width: 90%;
+	margin: 0 auto;
+	padding: 0 3vw 5vw;
+}
+
+.form-container form {
+	opacity: 1;
+	transition: 0.7s opacity linear;
+}
+
+.form-container form.fade-out {
+	opacity: 0;
+}
+
+.form-container .thankyou-message,
+.form-container .form-submit-error {
+	transition: 0.7s opacity linear;
+	opacity: 1;
+}
+
+.form-container .thankyou-message.fade-out,
+.form-container .form-submit-error.fade-out {
+	opacity: 0;
+}
+
+.form-container section {
+	padding-bottom: 20px;
+}
+
+.additional-text {
+	font-size: 1.8rem;
+	margin-bottom: 2vh;
+}
+
+.question {
+	padding-bottom: 20px;
+	margin-bottom: 1vh;
+}
+
+.question p {
+	margin-bottom: 20px;
+	font-size: 1.6rem;
+}
+
+.question p.no-margin {
+	margin-bottom: 0;
+}
+
+.question small {
+	font-size: 1rem;
+}
+
+.form-container label {
+	width: 100%;
+	display: block;
+	font-size: 1.6rem;
+}
+
+.form-container label input[type='text'],
+.form-container label input[type='url'],
+.form-container label input[type='email'] {
+	display: block;
+	width: 100%;
+	margin-top: 5px;
+	padding: 10px;
+}
+
+.names-container {
+	display: flex;
+	flex-direction: column;
+}
+
+.question[data-question-type='radio'] label,
+.question[data-question-type='checkbox-multi-values'] label,
+.question.started-planning label {
+	padding-bottom: 1vh;
+}
+
+input[type='radio'],
+input[type='checkbox'] {
+	margin-right: 5vw;
+}
+
+#planning-description {
+	width: 100%;
+}
+
+/* Form validation styles */
+.validation-error {
+	border: 2px solid #af0404;
+}
+
+.validation-error-msg {
+	margin-top: 5px;
+	font-size: 1.2rem;
+	color: #af0404;
+	display: none;
+}
+
+.validation-error-msg.show {
+	display: inline-block;
+}
+
+.submit-btn {
+	color: #fff;
+	background-color: #263369;
+	border-radius: 0.4rem;
+	padding: 1.2rem 1.75rem;
+	border: 0;
+	font-size: 1.6rem;
+	cursor: pointer;
+	display: block;
+	margin: 0 auto;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.submit-btn:disabled {
+	opacity: 0.3;
+	cursor: default;
+}
+
+.submit-btn.active:hover {
+	opacity: 0.8;
+}
+
+.thankyou-message,
+.form-submit-error {
+	padding-bottom: 20vh;
+}
+
+.thankyou-message h2,
+.form-submit-error h2 {
+	font-size: 3rem;
+}
+
+.thankyou-message p,
+.form-submit-error p {
+	font-size: 2rem;
+}
+
+/* Desktop style overrides */
+@media (min-width: 600px) {
+	.form-container {
+		width: 70%;
+	}
+
+	.names-container {
+		flex-direction: row;
+	}
+
+	.name-part {
+		width: 47.5%;
+	}
+
+	.first-name-container {
+		margin-right: 5%;
+	}
+
+	input[type='radio'],
+	input[type='checkbox'] {
+		margin-right: 1.5vw;
+	}
+}

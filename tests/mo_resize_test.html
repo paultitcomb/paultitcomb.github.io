@@ -4,100 +4,188 @@
 		<meta charset="UTF-8" />
 		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="robots" content="noindex, nofollow" />
-		<title>Mutation Observer resize test</title>
-		<style>
-			* {
-				box-sizing: border-box;
-			}
-
-			body {
-				margin: 0;
-				padding: 0;
-				font-family: sans-serif;
-			}
-
-			form {
-				padding: 2%;
-				/* border: 1px solid black; */
-			}
-
-			label {
-				display: block;
-				margin-bottom: 10px;
-			}
-
-			.hidden {
-				display: none;
-			}
-
-			.question {
-				margin-bottom: 5%;
-			}
-		</style>
+		<title>Summer of Play Pledge form</title>
+		<link rel="stylesheet" href="css/styles.css" />
+		<script src="js/form.js" defer></script>
 	</head>
 	<body>
-		<form action="" class="form-el">
-			<div class="question radio-btns-wrapper">
-				<p>Show the text area?</p>
-				<label for="yes-option"><input type="radio" name="yes_no" id="yes-option" value="yes" />Yes</label>
-				<label for="no-option"><input type="radio" name="yes_no" id="no-option" value="no" />No</label>
+		<div class="form-container">
+			<form action="" novalidate>
+				<div class="question" data-question-type="text">
+					<label for="organisation"
+						>Organisation Name *
+						<input name="organisation" id="organisation" type="text" required />
+						<span class="validation-error-msg">Please enter a value in this field</span>
+					</label>
+				</div>
+				<div class="question" data-question-type="text">
+					<label for="website"
+						>Organisation website *
+						<input name="website" id="website" type="url" required />
+						<span class="validation-error-msg">Please enter a value in this field</span>
+					</label>
+				</div>
+				<div class="question" data-question-type="text">
+					<label for="first_name"
+						>Your Name <small>(for future contact)</small> *
+						<div class="names-container">
+							<div class="name-part first-name-container">
+								<input
+									name="first_name"
+									class="name-validation"
+									id="first_name"
+									type="text"
+									placeholder="First name"
+									required
+									pattern="[a-zA-Z¡¿ÄäÀàÁáÂâÃãÅåǍǎĄąĂăÆæĀāÇçĆćĈĉČčĎđĐďðÈèÉéÊêËëĚěĘęĖėĒēĜĝĢģĞğĤĥÌìÍíÎîÏïıĪīĮįĴĵĶķĹĺĻļŁłĽľÑñŃńŇňŅņÖöÒòÓóÔôÕõŐőØøŒœŔŕŘřẞßŚśŜŝŞşŠšȘșŤťŢţÞþȚțÜüÙùÚúÛûŰűŨũŲųŮůŪūŴŵÝýŸÿŶŷŹźŽžŻż.'’\s-]+"
+								/>
+								<span class="validation-error-msg">Please enter a value in this field</span>
+							</div>
+							<div class="name-part last-name-container">
+								<input
+									name="surname"
+									class="name-validation"
+									id="surname"
+									type="text"
+									placeholder="Last name"
+									required
+									pattern="[a-zA-Z¡¿ÄäÀàÁáÂâÃãÅåǍǎĄąĂăÆæĀāÇçĆćĈĉČčĎđĐďðÈèÉéÊêËëĚěĘęĖėĒēĜĝĢģĞğĤĥÌìÍíÎîÏïıĪīĮįĴĵĶķĹĺĻļŁłĽľÑñŃńŇňŅņÖöÒòÓóÔôÕõŐőØøŒœŔŕŘřẞßŚśŜŝŞşŠšȘșŤťŢţÞþȚțÜüÙùÚúÛûŰűŨũŲųŮůŪūŴŵÝýŸÿŶŷŹźŽžŻż.'’\s-]+"
+								/>
+								<span class="validation-error-msg">Please enter a value in this field</span>
+							</div>
+						</div>
+					</label>
+				</div>
+				<div class="question" data-question-type="text">
+					<label for="position"
+						>Your position within the organisation *
+						<input name="position" id="position" type="text" required />
+						<span class="validation-error-msg">Please enter a value in this field</span>
+					</label>
+				</div>
+				<div class="question" data-question-type="text">
+					<label for="email_address"
+						>Your email *
+						<input
+							name="email_address"
+							id="email_address"
+							type="email"
+							pattern="^[a-zA-Z0-9]([a-zA-Z0-9_-]|\.[a-zA-Z0-9]){0,29}@[a-zA-Z0-9_-]{1,30}\.[a-zA-Z0-9]([a-zA-Z0-9_-]|\.[a-zA-Z0-9])+$"
+							required
+						/>
+						<span class="validation-error-msg">Please enter a value in this field</span>
+					</label>
+				</div>
+				<div class="question" data-question-type="radio">
+					<p>Organisation sector *</p>
+					<label for="sector-public"
+						><input type="radio" name="sector" id="sector-public" value="public" required />Public
+						sector</label
+					>
+					<label for="sector-private">
+						<input type="radio" name="sector" id="sector-private" value="private" required />Private sector
+					</label>
+					<label for="sector-third">
+						<input type="radio" name="sector" id="sector-third" value="third" required />Third sector
+					</label>
+					<span class="validation-error-msg">Please select one of these options</span>
+				</div>
+				<p class="additional-text">Additional, optional questions that will help us with our work</p>
+				<div class="question" data-question-type="text">
+					<label for="organisation_type"
+						>Organisation type
+						<input name="organisation_type" type="text" id="organisation_type" />
+					</label>
+				</div>
+				<div class="question" data-question-type="checkbox-multi-values">
+					<p>Where will you be supporting #SummerOfPlay?</p>
+					<p>Select all that apply:</p>
+					<label for="region-london">
+						<input type="checkbox" name="region" id="region-london" value="London" />London
+					</label>
+					<label for="region-south">
+						<input type="checkbox" name="region" id="region-south" value="South" />South of England
+					</label>
+					<label for="region-midlands">
+						<input type="checkbox" name="region" id="region-midlands" value="Midlands" />Midlands
+					</label>
+					<label for="region-east">
+						<input type="checkbox" name="region" id="region-east" value="East" />East
+					</label>
+					<label for="region-north">
+						<input type="checkbox" name="region" id="region-north" value="North" />North of England
+					</label>
+					<label for="region-wales">
+						<input type="checkbox" name="region" id="region-wales" value="Wales" />Wales
+					</label>
+					<label for="region-scotland">
+						<input type="checkbox" name="region" id="region-scotland" value="Scotland" />Scotland
+					</label>
+					<label for="region-northern-ireland">
+						<input
+							type="checkbox"
+							name="region"
+							id="region-northern-ireland"
+							value="Northern Ireland"
+						/>Northern Ireland
+					</label>
+				</div>
+				<div class="question" data-question-type="checkbox-multi-values">
+					<p>Age group of children most likely to reach.</p>
+					<p>Select all that apply:</p>
+					<label for="age-group-early-years">
+						<input type="checkbox" name="age_group" id="age-group-early-years" value="Early years" />Early
+						years
+					</label>
+					<label for="age-group-primary">
+						<input type="checkbox" name="age_group" id="age-group-primary" value="Primary" />Primary
+					</label>
+					<label for="age-group-secondary">
+						<input type="checkbox" name="age_group" id="age-group-secondary" value="Secondary" />Secondary
+					</label>
+				</div>
+				<div class="question started-planning" data-question-type="radio">
+					<p class="no-margin">Have you started planning for the #SummerOfPlay?</p>
+					<p>
+						<small
+							>(Don't worry if not, we will send you links to helpful resources to get you
+							started!)</small
+						>
+					</p>
+					<label for="started-planning-yes">
+						<input type="radio" name="started" id="started-planning-yes" value="true" />Yes
+					</label>
+					<label for="started-planning-no">
+						<input type="radio" name="started" id="started-planning-no" value="false" checked />No
+					</label>
+					<div class="planning-textarea hidden">
+						<label for="planning-description"
+							>If yes, can you please briefly describe your plans here:</label
+						>
+						<textarea name="plans" id="planning-description" rows="10" maxlength="1000"></textarea>
+					</div>
+				</div>
+				<div class="question" data-question-type="checkbox-boolean">
+					<p>Proud to be displayed as supporter?</p>
+					<label for="share-data-cb"
+						><input type="checkbox" name="share_data" id="share-data-cb" value="true" />Organisation name to
+						be shared on website</label
+					>
+				</div>
+				<input type="submit" value="Sign the pledge" class="submit-btn" disabled />
+			</form>
+			<div class="form-submit-error hidden fade-out">
+				<h2>Oh dear</h2>
+				<p>
+					There has been an error submitting the form, please refresh and try again or get in contact with us
+					at
+					<a href="mailto:d.paskins@savethechildren.org.uk">d.paskins@savethechildren.org.uk</a>
+				</p>
 			</div>
-			<div class="question text-area-wrapper hidden">
-				<label for="hidden-textarea">This is a textarea</label>
-				<textarea name="hidden_textarea" id="hidden-textarea" cols="30" rows="10"></textarea>
+			<div class="thankyou-message hidden fade-out">
+				<h2>Thank you</h2>
+				<p>Thanks for pledging your support</p>
 			</div>
-		</form>
-		<script>
-			var $form = document.querySelector('.form-el');
-			var $rbw = document.querySelector('.radio-btns-wrapper');
-			var $taw = document.querySelector('.text-area-wrapper');
-			var $parentWindow = window.parent;
-			var formHeight = 0;
-			var moConfig = { attributes: true, childList: false, subtree: true };
-
-			function checkFormHeight() {
-				var currentHeight = $form.offsetHeight;
-				if (currentHeight !== formHeight) {
-					sendMsgToParentWindow('iframeHeight-' + currentHeight);
-					formHeight = currentHeight;
-				}
-			}
-
-			function toggleTextArea(e) {
-				var $btn = e.target;
-
-				if ($btn.name === 'yes_no') {
-					$btn.value === 'yes' ? $taw.classList.remove('hidden') : $taw.classList.add('hidden');
-					// checkFormHeight();
-				}
-			}
-
-			function sendMsgToParentWindow(msg) {
-				$parentWindow.postMessage(msg, '*');
-			}
-
-			// Callback function to execute when mutations are observed
-			function moCallback(mutationsList, observer) {
-				// Use traditional 'for loops' for IE 11
-				for (var index = 0; index < mutationsList.length; index++) {
-					// var element = array[index];
-					checkFormHeight();
-				}
-			}
-
-			// Event listeners ========
-			$rbw.addEventListener('change', toggleTextArea);
-
-			// Create an observer instance linked to the callback function
-			var observer = new MutationObserver(moCallback);
-
-			// Start observing the target node for configured mutations
-			observer.observe($form, moConfig);
-
-			window.addEventListener('load', function (e) {
-				checkFormHeight();
-			});
-		</script>
+		</div>
 	</body>
 </html>
