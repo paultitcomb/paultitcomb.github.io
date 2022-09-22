@@ -1,0 +1,36 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	padding: 0;
+	margin: 0;
+	font-family: sans-serif;
+}
+
+main {
+	width: 80%;
+	margin: 50px auto 0;
+	padding: 20px;
+}
+
+.stcuk-site main {
+	background-color: #9a3324;
+	color: #fff;
+}
+
+.jg-site main {
+	background-color: darkcyan;
+}
+
+.jg-iframe main {
+	background-color: aquamarine;
+	width: 100%;
+	margin: 0;
+}
+
+.jg-iframe-page {
+	width: 100%;
+	border: 0;
+	min-height: 300px;
+}
