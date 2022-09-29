@@ -7,5 +7,5 @@ window.addEventListener('load', e => {
 });
 
 origWinBtn.addEventListener('click', e => {
-	opener.postMessage('hello from the opened window', '*');
+	window.postMessage('hello from the opened window', '*');
 });
