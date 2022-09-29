@@ -7,5 +7,5 @@ const origWinBtn = document.querySelector('.original-window-btn');
 // });
 
 origWinBtn.addEventListener('click', e => {
-	window.parent.postMessage('hello from the opened window', '*');
+	window.parent.postMessage('hello from the opened window');
 });
