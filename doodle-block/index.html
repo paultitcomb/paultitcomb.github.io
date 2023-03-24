@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Doodle block test</title>
+		<link rel="stylesheet" href="css/styles.css" />
+		<script src="js/doodle.js" defer></script>
+	</head>
+	<body>
+		<main>
+			<div class="doodle-container"></div>
+			<div class="config-panel">
+				<section class="config-section pick-bg-color">
+					<label for="bg-color">Pick a background colour</label>
+					<select name="bg-color" id="bg-color">
+						<option value="biscuit">Biscuit</option>
+						<option value="grey">Grey</option>
+						<option value="pink">Pink</option>
+						<option value="purple">Purple</option>
+					</select>
+				</section>
+				<section class="config-section add-image">
+					<label for="">Add an image</label>
+					<input type="text" name="img-input" id="img-input" />
+					<button class="add-img-btn">Add image</button>
+					<p class="doodle-title">Doodles:</p>
+					<ul class="doodle-list"></ul>
+				</section>
+				<section class="config-section code-block">
+					<pre></pre>
+					<button class="copy-css-btn">Copy css</button>
+				</section>
+			</div>
+		</main>
+	</body>
+</html>
