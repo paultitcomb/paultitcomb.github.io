@@ -153,5 +153,5 @@ window.addEventListener('DOMContentLoaded', e => {
 });
 
 window.addEventListener('message', e => {
-	console.log(e);
+	console.log(JSON.parse(e.data));
 });
