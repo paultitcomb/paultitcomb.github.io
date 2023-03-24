@@ -152,10 +152,6 @@ window.addEventListener('DOMContentLoaded', e => {
 	doodleContainer.classList.add(`doodle-container-${doodleContainerId}`);
 });
 
-window.addEventListener(
-	'message',
-	e => {
-		console.log(e);
-	},
-	false
-);
+window.addEventListener('message', e => {
+	console.log(e);
+});
