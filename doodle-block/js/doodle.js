@@ -152,6 +152,10 @@ window.addEventListener('DOMContentLoaded', e => {
 	doodleContainer.classList.add(`doodle-container-${doodleContainerId}`);
 });
 
+window.addEventListener('load', e => {
+	window.opener.postMessage('doodle-positioner-loaded', '*');
+});
+
 window.addEventListener('message', e => {
 	console.log(JSON.parse(e.data));
 });
