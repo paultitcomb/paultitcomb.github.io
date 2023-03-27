@@ -46,13 +46,27 @@ function loadNewImg(img, id) {
 	addListEntry(id);
 }
 
+function loadListOfImgs(data) {
+	for (const img of data.imgList) {
+		const id = idGenerator(8);
+		imgArr.push({ id, name: img, x: 0, y: 0 });
+		const newDoodle = new Image();
+		newDoodle.src = `${data.domain}${img}`;
+		const imgId = `image-${id}`;
+		newDoodle.id = imgId;
+		newDoodle.classList.add('added-doodle');
+		doodleContainer.appendChild(newDoodle);
+		addListEntry(id);
+	}
+	generateCssRules();
+}
+
 function addListEntry(id) {
 	const doodleInstance = getDoodleInstance(id);
 	const newLi = document.createElement('li');
 	newLi.id = `doodle-${doodleInstance.id}`;
 	newLi.textContent = setDoodleListText(doodleInstance);
 	doodleList.appendChild(newLi);
-	generateCssRules();
 }
 
 function setDoodleListText(doodleInstance) {
@@ -157,5 +171,6 @@ window.addEventListener('load', e => {
 });
 
 window.addEventListener('message', e => {
-	console.log(JSON.parse(e.data));
+	const data = JSON.parse(e.data);
+	loadListOfImgs(data);
 });
