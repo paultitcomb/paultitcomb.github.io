@@ -67,15 +67,15 @@ function loadListOfImgs(data) {
 function getDispatcherDomain(url) {
 	let dispatcherUrl = '';
 	// for dev environments
-	if (url.contains('aem-dev')) {
+	if (url.includes('aem-dev')) {
 		dispatcherUrl = url.replace('-author', '');
 	}
 	// for pre prod
-	if (url.contains('author-savethechildren-preprod-65-uk')) {
+	if (url.includes('author-savethechildren-preprod-65-uk')) {
 		dispatcherUrl = url.replace('author-', '');
 	}
 	// for prod
-	if (url.contains('author.savethechildren')) {
+	if (url.includes('author.savethechildren')) {
 		dispatcherUrl = url.replace('author', 'www');
 	}
 	return dispatcherUrl;
