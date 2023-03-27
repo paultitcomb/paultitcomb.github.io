@@ -49,7 +49,8 @@ function loadNewImg(img, id) {
 function loadListOfImgs(data) {
 	for (const img of data.imgList) {
 		const id = idGenerator(8);
-		imgArr.push({ id, name: img, x: 0, y: 0 });
+		const fileName = getFilenameFromPath(img);
+		imgArr.push({ id, name: fileName, x: 0, y: 0 });
 		const newDoodle = new Image();
 		const dispatcherDomain = getDispatcherDomain(data.domain);
 		const imgSrc = `${dispatcherDomain}${img}`;
@@ -62,6 +63,11 @@ function loadListOfImgs(data) {
 		addListEntry(id);
 	}
 	generateCssRules();
+}
+
+function getFilenameFromPath(imgUrl) {
+	const lastSlashIndex = imgUrl.lastIndexOf('/');
+	return imgUrl.substring(lastSlashIndex);
 }
 
 function getDispatcherDomain(url) {
