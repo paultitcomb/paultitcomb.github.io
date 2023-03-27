@@ -51,7 +51,9 @@ function loadListOfImgs(data) {
 		const id = idGenerator(8);
 		imgArr.push({ id, name: img, x: 0, y: 0 });
 		const newDoodle = new Image();
-		newDoodle.src = `${data.domain}${img}`;
+		const imgSrc = `${data.domain}${img}`;
+		console.log(imgSrc);
+		newDoodle.src = imgSrc;
 		const imgId = `image-${id}`;
 		newDoodle.id = imgId;
 		newDoodle.classList.add('added-doodle');
