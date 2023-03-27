@@ -174,5 +174,6 @@ window.addEventListener('load', e => {
 
 window.addEventListener('message', e => {
 	const data = JSON.parse(e.data);
+	console.log(data);
 	loadListOfImgs(data);
 });
