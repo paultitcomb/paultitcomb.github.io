@@ -51,7 +51,8 @@ function loadListOfImgs(data) {
 		const id = idGenerator(8);
 		imgArr.push({ id, name: img, x: 0, y: 0 });
 		const newDoodle = new Image();
-		const imgSrc = `${data.domain}${img}`;
+		const dispatcherDomain = getDispatcherDomain(data.domain);
+		const imgSrc = `${dispatcherDomain}${img}`;
 		console.log(imgSrc);
 		newDoodle.src = imgSrc;
 		const imgId = `image-${id}`;
@@ -61,6 +62,23 @@ function loadListOfImgs(data) {
 		addListEntry(id);
 	}
 	generateCssRules();
+}
+
+function getDispatcherDomain(url) {
+	let dispatcherUrl = '';
+	// for dev environments
+	if (url.contains('aem-dev')) {
+		dispatcherUrl = url.replace('-author', '');
+	}
+	// for pre prod
+	if (url.contains('author-savethechildren-preprod-65-uk')) {
+		dispatcherUrl = url.replace('author-', '');
+	}
+	// for prod
+	if (url.contains('author.savethechildren')) {
+		dispatcherUrl = url.replace('author', 'www');
+	}
+	return dispatcherUrl;
 }
 
 function addListEntry(id) {
