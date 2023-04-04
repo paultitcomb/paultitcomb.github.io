@@ -13,6 +13,7 @@ const addImgBtn = document.querySelector('.add-img-btn');
 const doodleList = document.querySelector('.doodle-list');
 const codeBlock = document.querySelector('.code-block pre');
 const copyCssBtn = document.querySelector('.copy-css-btn');
+const sendCssToAEM = document.querySelector('.send-css-to-aem');
 
 function handleBgColorChange(e) {
 	doodleBgColor = bgColorMenu.value;
@@ -182,11 +183,18 @@ function copyCssToClipboard() {
 	}
 }
 
+function sendCss() {
+	const textStr = codeBlock.textContent;
+	// const returnData = JSON.stringify({ cssCode: textStr });
+	window.opener.postMessage(`cssCode-${textStr}`, '*');
+}
+
 // event listeners
 bgColorMenu.addEventListener('change', handleBgColorChange);
 addImgBtn.addEventListener('click', handleAddImg);
 doodleContainer.addEventListener('mousedown', clickDoodle, false);
 copyCssBtn.addEventListener('click', copyCssToClipboard);
+sendCssToAEM.addEventListener('click', sendCss);
 window.addEventListener('DOMContentLoaded', e => {
 	doodleContainerId = idGenerator(8);
 	doodleContainer.classList.add(`doodle-container-${doodleContainerId}`);
