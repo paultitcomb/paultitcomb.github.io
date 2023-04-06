@@ -52,9 +52,9 @@ function loadListOfImgs(data) {
 	for (const img of data.imgList) {
 		const id = idGenerator(8);
 		const fileName = getFilenameFromPath(img);
-		imgArr.push({ id, name: fileName, filePath: img, x: 0, y: 0 });
-		const newDoodle = new Image();
 		const dispatcherDomain = getDispatcherDomain(data.domain);
+		imgArr.push({ id, name: fileName, filePath: `${dispatcherDomain}${img}`, x: 0, y: 0 });
+		const newDoodle = new Image();
 		const imgSrc = `${dispatcherDomain}${img}`;
 		console.log(imgSrc);
 		newDoodle.src = imgSrc;
