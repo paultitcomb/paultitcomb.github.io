@@ -48,6 +48,7 @@ function loadNewImg(img, id) {
 }
 
 function loadListOfImgs(data) {
+	doodleContainerId = data.blockId;
 	for (const img of data.imgList) {
 		const id = idGenerator(8);
 		const fileName = getFilenameFromPath(img);
@@ -195,10 +196,10 @@ addImgBtn.addEventListener('click', handleAddImg);
 doodleContainer.addEventListener('mousedown', clickDoodle, false);
 copyCssBtn.addEventListener('click', copyCssToClipboard);
 sendCssToAEM.addEventListener('click', sendCss);
-window.addEventListener('DOMContentLoaded', e => {
-	doodleContainerId = idGenerator(8);
-	doodleContainer.classList.add(`doodle-container-${doodleContainerId}`);
-});
+// window.addEventListener('DOMContentLoaded', e => {
+// 	doodleContainerId = idGenerator(8);
+// 	doodleContainer.classList.add(`doodle-container-${doodleContainerId}`);
+// });
 
 window.addEventListener('load', e => {
 	window.opener.postMessage('doodle-positioner-loaded', '*');
