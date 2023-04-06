@@ -157,9 +157,9 @@ function generateCssRules() {
 		imgArr.forEach((img, i) => {
 			// for the first entry
 			if (i === 0) {
-				css += `background: url('${img.name}') no-repeat ${img.x}px ${img.y}px`;
+				css += `background: url('images${img.name}') no-repeat ${img.x}px ${img.y}px`;
 			} else {
-				css += `url('${img.name}') no-repeat ${img.x}px ${img.y}px`;
+				css += `url('images${img.name}') no-repeat ${img.x}px ${img.y}px`;
 			}
 			// is it the last entry
 			if (i + 1 === imgArr.length) {
