@@ -52,7 +52,7 @@ function loadListOfImgs(data) {
 	for (const img of data.imgList) {
 		const id = idGenerator(8);
 		const fileName = getFilenameFromPath(img);
-		imgArr.push({ id, name: fileName, x: 0, y: 0 });
+		imgArr.push({ id, name: fileName, filePath: img, x: 0, y: 0 });
 		const newDoodle = new Image();
 		const dispatcherDomain = getDispatcherDomain(data.domain);
 		const imgSrc = `${dispatcherDomain}${img}`;
@@ -157,9 +157,9 @@ function generateCssRules() {
 		imgArr.forEach((img, i) => {
 			// for the first entry
 			if (i === 0) {
-				css += `background: url('images${img.name}') no-repeat ${img.x}px ${img.y}px`;
+				css += `background: url(${img.filePath}) no-repeat ${img.x}px ${img.y}px`;
 			} else {
-				css += `url('images${img.name}') no-repeat ${img.x}px ${img.y}px`;
+				css += `url(${img.filePath}) no-repeat ${img.x}px ${img.y}px`;
 			}
 			// is it the last entry
 			if (i + 1 === imgArr.length) {
@@ -196,10 +196,6 @@ addImgBtn.addEventListener('click', handleAddImg);
 doodleContainer.addEventListener('mousedown', clickDoodle, false);
 copyCssBtn.addEventListener('click', copyCssToClipboard);
 sendCssToAEM.addEventListener('click', sendCss);
-// window.addEventListener('DOMContentLoaded', e => {
-// 	doodleContainerId = idGenerator(8);
-// 	doodleContainer.classList.add(`doodle-container-${doodleContainerId}`);
-// });
 
 window.addEventListener('load', e => {
 	window.opener.postMessage('doodle-positioner-loaded', '*');
