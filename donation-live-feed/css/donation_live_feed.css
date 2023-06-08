@@ -1,0 +1,93 @@
+body {
+	margin: 0;
+	padding: 0;
+	font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell,
+		'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+main {
+	width: 75%;
+	margin: 50px auto 0;
+}
+
+.donation-feed-wrapper {
+	width: 100%;
+	overflow: hidden;
+	padding: 20px 0;
+	background-color: antiquewhite;
+}
+
+.donation-feed {
+	display: grid;
+	grid-template-columns: repeat(21, minmax(25%, 1fr));
+}
+
+.donation-feed.scroll {
+	animation: scrollLeft 30s linear infinite;
+}
+
+@keyframes scrollLeft {
+	0%,
+	100% {
+		transform: translateX(100%);
+		opacity: 1;
+	}
+
+	95% {
+		transform: translateX(-425%);
+		opacity: 1;
+	}
+
+	99.9% {
+		transform: translateX(-425%);
+		opacity: 0;
+	}
+}
+
+.donation {
+	background-color: antiquewhite;
+	position: relative;
+}
+
+.donation::after {
+	content: '';
+	background-repeat: no-repeat;
+	background-position: 0 0;
+	position: absolute;
+	left: 100%;
+	top: 50%;
+	z-index: 1;
+	transform: translate(-50%, -50%);
+}
+
+.donation:nth-of-type(3n + 1):after {
+	background-image: url('../imgs/two_hearts.svg');
+	width: 91px;
+	height: 76px;
+}
+
+.donation:nth-of-type(3n + 2):after {
+	background-image: url('../imgs/stars.svg');
+	width: 57px;
+	height: 58px;
+}
+
+.donation:nth-of-type(3n + 3):after {
+	background-image: url('../imgs/heart.svg');
+	width: 35px;
+	height: 36px;
+}
+
+/* .donation:first-of-type {
+	background-color: green;
+} */
+
+.donation > div {
+	text-align: center;
+}
+
+.start-scroll {
+	position: fixed;
+	left: 12.5%;
+	bottom: 60%;
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Donation live feed using Marquee</title>
+		<link rel="stylesheet" href="css/donation_live_feed.css" />
+	</head>
+	<body>
+		<main>
+			<div class="donation-feed-wrapper">
+				<div class="donation-feed">
+					<div class="donation">
+						<div class="name">Paul</div>
+						<div class="time">14 hours ago</div>
+						<div class="info">£250</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">98 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">116 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Betty</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£34</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">95 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">98 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">116 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Betty</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£34</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">95 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">98 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">116 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Betty</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£34</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">95 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">98 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">116 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+					<div class="donation">
+						<div class="name">Betty</div>
+						<div class="time">143 hours ago</div>
+						<div class="info">£34</div>
+					</div>
+					<div class="donation">
+						<div class="name">Tony</div>
+						<div class="time">95 hours ago</div>
+						<div class="info">£25</div>
+					</div>
+				</div>
+			</div>
+		</main>
+		<button class="start-scroll">Start scrolling</button>
+		<script>
+			const donationFeed = document.querySelector('.donation-feed');
+			const startScrollBtn = document.querySelector('.start-scroll');
+
+			startScrollBtn.addEventListener('click', e => {
+				donationFeed.classList.add('scroll');
+			});
+		</script>
+	</body>
+</html>
