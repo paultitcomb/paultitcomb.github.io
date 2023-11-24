@@ -1,5 +1,5 @@
-const findAPIEndPoint = 'http://api.addressy.com/Capture/Interactive/Find/v1.10/json3.ws';
-const retrieveAPIEndPoint = 'http://api.addressy.com/Capture/Interactive/Retrieve/v1.20/json3.ws';
+const findAPIEndPoint = 'https://api.addressy.com/Capture/Interactive/Find/v1.1/json3.ws';
+const retrieveAPIEndPoint = 'https://api.addressy.com/Capture/Interactive/Retrieve/v1.2/json3.ws';
 let requestOptions = {
 	method: 'POST',
 	headers: {
