@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Loqate API test</title>
+		<link
+			href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+			rel="stylesheet"
+			integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+			crossorigin="anonymous"
+		/>
+		<link rel="stylesheet" href="css/styles.css" />
+		<script src="js/main.js" defer></script>
+	</head>
+	<body>
+		<main class="container">
+			<h1>Loqate Address Lookup PoC</h1>
+			<form action="">
+				<div class="form-control mb-3">
+					<small class="no-api-key-msg text-danger mb-2" hidden>
+						You need to enter the Loqate API key as a search parameter to use this, e.g. ?key=VALID_API_KEY
+					</small>
+					<label for="postcode-search-input" class="me-2 text-end">Enter your postcode:</label>
+					<input type="text" name="postcode-search-input" class="form-control" id="postcode-search-input" />
+					<button class="find-btn btn btn-primary ms-2">Find</button>
+					<select
+						name="postcode-results"
+						id="postcode-results"
+						class="form-select form-select-md mb-3"
+						multiple
+						size="10"
+						hidden
+					>
+						<option value="none">Please select an address...</option>
+					</select>
+				</div>
+				<fieldset class="address-details" hidden>
+					<div class="form-control mb-3 border-0">
+						<label for="address-org-name" class="me-2 text-end">Organisation name:</label>
+						<input type="text" name="address-org-name" id="address-org-name" />
+					</div>
+					<div class="form-control mb-3 border-0">
+						<label for="address-line-1" class="me-2 text-end">Address line 1:</label>
+						<input type="text" name="address-line-1" id="address-line-1" />
+					</div>
+					<div class="form-control mb-3 border-0">
+						<label for="address-line-2" class="me-2 text-end">Address line 2:</label>
+						<input type="text" name="address-line-2" id="address-line-2" />
+					</div>
+					<div class="form-control mb-3 border-0">
+						<label for="address-line-3" class="me-2 text-end">Address line 3:</label>
+						<input type="text" name="address-line-3" id="address-line-3" />
+					</div>
+					<div class="form-control mb-3 border-0">
+						<label for="address-town" class="me-2 text-end">Town/City:</label>
+						<input type="text" name="address-town" id="address-town" />
+					</div>
+					<div class="form-control mb-3 border-0">
+						<label for="address-postcode" class="me-2 text-end">Postcode:</label>
+						<input type="text" name="address-postcode" id="address-postcode" />
+					</div>
+				</fieldset>
+			</form>
+		</main>
+	</body>
+</html>
