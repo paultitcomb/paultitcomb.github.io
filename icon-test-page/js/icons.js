@@ -6,6 +6,11 @@ const icons = [
 	}
 ];
 
+function insertInlineStyles() {
+	const styles = `.style-block{background-color:#f5f5f5;text-align:center}.style-block p{text-align:center;font-size:1.4rem}`;
+	document.head.insertAdjacentHTML('beforeend', styles);
+}
+
 function createMarkup(svgCode, color) {
 	const iconMarkup = `${svgCode}<p>Colour variant: ${color}</p>`;
 	const iconWrapper = document.createElement('div');
@@ -16,6 +21,8 @@ function createMarkup(svgCode, color) {
 }
 
 function addIcons() {
+	// add some minimal inline styles for layout
+	insertInlineStyles();
 	for (const icon of icons) {
 		const iconWrapper = document.querySelector(icon.selector);
 		for (const color of icon.colors) {
