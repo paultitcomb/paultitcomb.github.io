@@ -7,8 +7,9 @@ const icons = [
 ];
 
 function insertInlineStyles() {
-	const styles = `.style-block{background-color:#f5f5f5;text-align:center}.style-block p{text-align:center;font-size:1.4rem}`;
-	document.head.insertAdjacentHTML('beforeend', styles);
+	const styleTag = document.createElement('style');
+	styleTag.textContent = `.style-block{background-color:#f5f5f5;text-align:center}.style-block p{text-align:center;font-size:1.4rem}`;
+	document.head.appendChild(styleTag);
 }
 
 function createMarkup(svgCode, color) {
