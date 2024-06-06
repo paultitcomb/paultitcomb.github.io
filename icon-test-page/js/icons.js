@@ -10,7 +10,7 @@ const icons = [
 		colors: ['red', 'white', 'dark-red', 'plum', 'black']
 	},
 	{
-		selector: '.chevron',
+		selector: '.chevron-wrapper',
 		svgCode: `<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.24219 2.00098L8.48483 6.24362L4.24219 10.4863" stroke="#DA291C" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>`,
 		colors: ['red', 'white', 'dark-red', 'plum', 'black']
 	}
