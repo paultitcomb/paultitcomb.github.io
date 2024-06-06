@@ -33,7 +33,7 @@ const icons = [
 
 function insertInlineStyles() {
 	const styleTag = document.createElement('style');
-	styleTag.textContent = `.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.style-block{background-color:#f5f5f5}.style-block h3{text-align:center;margin:2rem 0}.style-block p{text-align:center;font-size:1.4rem}`;
+	styleTag.textContent = `.style-block h3,.style-block p,.style-block>div{text-align:center}.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}.style-block{background-color:#f5f5f5}.style-block h3{margin:2rem 0}.style-block p{font-size:1.4rem;font-family:Lato,sans-serif}`;
 	document.head.appendChild(styleTag);
 }
 
