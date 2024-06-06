@@ -36,10 +36,10 @@ function addIcons() {
 	insertInlineStyles();
 	for (const icon of icons) {
 		const iconWrapper = document.querySelector(icon.selector);
+		// clean rubbish out of div first
+		iconWrapper.innerHTML = '';
 		for (const color of icon.colors) {
 			const iconEl = createMarkup(icon.svgCode, color);
-			// clean rubbish out of div first
-			iconWrapper.innerHTML = '';
 			iconWrapper.appendChild(iconEl);
 		}
 	}
