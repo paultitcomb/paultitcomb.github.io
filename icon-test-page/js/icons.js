@@ -77,7 +77,7 @@ const icons = [
 	{
 		selector: '.locked-wrapper',
 		svgCode: `<svg class="icon-locked" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><g clip-path="url(#clip0_2_1421)"><rect width="16" height="16" rx="8" fill="#999999"/><path d="M3 8C3 6.89543 3.89543 6 5 6H11C12.1046 6 13 6.89543 13 8V10C13 12.2091 11.2091 14 9 14H7C4.79086 14 3 12.2091 3 10V8Z" fill="white"/><rect x="5.5" y="2.5" width="5" height="11" rx="2.5" stroke="white"/><path d="M7 10H9V12C9 12.5523 8.55228 13 8 13C7.44772 13 7 12.5523 7 12V10Z" fill="#999999"/><circle cx="8" cy="9" r="2" fill="#999999"/></g><defs><clipPath id="clip0_2_1421"><rect width="16" height="16" fill="white"/></clipPath></defs></svg>`,
-		colors: ['grey', 'plum', 'tranparent-bg']
+		colors: ['grey', 'plum', 'transparent-bg']
 	},
 	{
 		selector: '.download-wrapper',
