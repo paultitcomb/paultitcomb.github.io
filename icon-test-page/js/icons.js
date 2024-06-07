@@ -105,7 +105,7 @@ const icons = [
 
 function insertInlineStyles() {
 	const styleTag = document.createElement('style');
-	styleTag.textContent = `.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:80%;margin:0 auto 2rem;}.style-block{background-color:#f5f5f5}.style-block>div{text-align:center;margin-bottom:2rem}.style-block h3{text-align:center;margin:2rem 0 0.5rem!important}.style-block p{text-align:center;font-size:1.4rem;font-family:Lato,sans-serif}`;
+	styleTag.textContent = `.icon-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;width:80%;margin:0 auto 2rem;}.style-block{background-color:#f5f5f5}.style-block>div{text-align:center;margin-bottom:2rem}.style-block h3{text-align:center;margin:2rem 0 0.5rem!important}.style-block p{text-align:center;font-size:1.4rem;font-family:Lato,sans-serif}.size-info{margin-bottom:2rem;font-size:1rem}`;
 	document.head.appendChild(styleTag);
 }
 
@@ -125,7 +125,7 @@ function addIcons() {
 		const iconWrapper = document.querySelector(icon.selector);
 		const iconTitle = iconWrapper.querySelector('h3');
 		// insert the icon size
-		iconTitle.insertAdjacentHTML('afterend', `<p>Size: ${icon.size}</p>`);
+		iconTitle.insertAdjacentHTML('afterend', `<p class="size-info">Size: ${icon.size}</p>`);
 		for (const color of icon.colors) {
 			const iconEl = createMarkup(icon.svgCode, color);
 			iconWrapper.appendChild(iconEl);
