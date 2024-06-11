@@ -102,6 +102,7 @@ const icons = [
 		size: '16px x 16px'
 	}
 ];
+const iconGrid = document.querySelector('.icon-grid');
 
 function insertInlineStyles() {
 	const styleTag = document.createElement('style');
@@ -135,10 +136,7 @@ function addIcons() {
 }
 
 // event listeners
-document.addEventListener('DOMContentLoaded', () => {
-	// add icons to the page
-	addIcons();
+document.addEventListener('DOMContentLoaded', addIcons);
+iconGrid.addEventListener('click', e => {
+	console.log(e);
 });
-
-const iconWrappers = document.querySelectorAll('.icon-wrapper');
-console.log(iconWrappers);
