@@ -136,7 +136,7 @@ function addIcons() {
 
 function initPopper() {
 	if (Popper) {
-		const tooltop = document.querySelector('.tooltip');
+		const tooltip = document.querySelector('.tooltip');
 		const iconWrappers = document.querySelectorAll('.icon-wrapper');
 		const first = iconWrappers[0];
 		const popperInstance = Popper.createPopper(first, tooltip);
