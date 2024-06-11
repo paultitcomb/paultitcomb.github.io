@@ -137,6 +137,10 @@ function addIcons() {
 
 // event listeners
 document.addEventListener('DOMContentLoaded', addIcons);
-iconGrid.addEventListener('click', e => {
-	console.log(e);
-});
+iconGrid.addEventListener(
+	'click',
+	e => {
+		console.log(e);
+	},
+	true
+);
