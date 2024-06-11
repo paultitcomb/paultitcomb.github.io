@@ -134,20 +134,11 @@ function addIcons() {
 	}
 }
 
-function initPopper() {
-	if (Popper) {
-		const tooltip = document.querySelector('.tooltip');
-		const iconWrappers = document.querySelectorAll('.icon-wrapper');
-		const first = iconWrappers[0];
-		const popperInstance = Popper.createPopper(first, tooltip);
-	}
-}
-
 // event listeners
 document.addEventListener('DOMContentLoaded', () => {
 	// add icons to the page
 	addIcons();
-
-	// init the Popper plugin
-	initPopper();
 });
+
+const iconWrappers = document.querySelectorAll('.icon-wrapper');
+console.log(iconWrappers);
