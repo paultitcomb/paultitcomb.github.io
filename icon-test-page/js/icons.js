@@ -135,7 +135,7 @@ function addIcons() {
 	}
 }
 
-function getClickedEl(el) {
+function getIconWrapper(el) {
 	let clicked = null;
 	if (el.classList.contains('icon-wrapper')) {
 		clicked = el;
@@ -145,13 +145,26 @@ function getClickedEl(el) {
 	return clicked;
 }
 
+function getIconInfo(el) {
+	const svg = el.querySelector('svg');
+	const classArr = Array.from(svg.classList);
+	const iconName = classArr[0].replace('icon-', '');
+	const iconColour = classArr[1];
+	return { name: iconName, colour: iconColour };
+
+	// <div data-sly-use.iconTest="../../pagecomponents/page/icons.html">
+	// 	<span class="icon" data-sly-call="${iconTest.iconSearch }"></span>
+	// 	<span class="icon" data-sly-call="${iconTest.iconSearch @ color='dark-red' }"></span>
+	// 	<span class="icon" data-sly-call="${iconTest.iconSearch @ color='black' }"></span>
+	// </div>
+}
+
 // event listeners
 document.addEventListener('DOMContentLoaded', addIcons);
 iconGrid.addEventListener('click', e => {
-	const clicked = getClickedEl(e.target);
-	if (clicked) {
-		console.log('yep');
-	} else {
-		console.log('nope');
+	const iconWrapper = getIconWrapper(e.target);
+	if (iconWrapper) {
+		const iconInfo = getIconInfo(iconWrapper);
+		console.log(iconInfo);
 	}
 });
