@@ -159,12 +159,24 @@ function getIconInfo(el) {
 	// </div>
 }
 
+function copyCodeToClipboard(iconInfo) {
+	const clipboardText = `<span class="icon" data-sly-call="blah"></span>`;
+	navigator.clipboard.writeText(clipboardText).then(
+		function () {
+			console.log('Text is: ', clipboardText);
+		},
+		function (err) {
+			console.error('Async: Could not copy text: ', err);
+		}
+	);
+}
+
 // event listeners
 document.addEventListener('DOMContentLoaded', addIcons);
 iconGrid.addEventListener('click', e => {
 	const iconWrapper = getIconWrapper(e.target);
 	if (iconWrapper) {
 		const iconInfo = getIconInfo(iconWrapper);
-		console.log(iconInfo);
+		copyCodeToClipboard(iconInfo);
 	}
 });
