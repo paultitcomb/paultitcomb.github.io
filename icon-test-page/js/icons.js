@@ -135,14 +135,23 @@ function addIcons() {
 	}
 }
 
+function getClickedEl() {
+	let clicked = null;
+	if (e.target.classList.contains('icon-wrapper')) {
+		clicked = e.target;
+	} else {
+		clicked = e.target.closest('.icon-wrapper');
+	}
+	return clicked;
+}
+
 // event listeners
 document.addEventListener('DOMContentLoaded', addIcons);
 iconGrid.addEventListener('click', e => {
-	const clicked = e.target;
-	if (clicked.classList.contains('icon-wrapper')) {
-		console.log(clicked);
+	const clicked = getClickedEl(e.target);
+	if (clicked) {
+		console.log('yep');
 	} else {
-		const parent = clicked.closest('.icon-wrapper');
-		console.log(parent);
+		console.log('nope');
 	}
 });
