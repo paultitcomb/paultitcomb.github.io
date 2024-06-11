@@ -135,12 +135,12 @@ function addIcons() {
 	}
 }
 
-function getClickedEl() {
+function getClickedEl(el) {
 	let clicked = null;
-	if (e.target.classList.contains('icon-wrapper')) {
-		clicked = e.target;
+	if (el.classList.contains('icon-wrapper')) {
+		clicked = el;
 	} else {
-		clicked = e.target.closest('.icon-wrapper');
+		clicked = el.closest('.icon-wrapper');
 	}
 	return clicked;
 }
