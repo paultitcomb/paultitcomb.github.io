@@ -139,7 +139,7 @@ document.addEventListener('DOMContentLoaded', addIcons);
 
 if (Popper) {
 	const tooltop = document.querySelector('.tooltip');
-	const icons = document.querySelectorAll('.icon-wrapper');
-	const first = icons[0];
+	const iconWrappers = document.querySelectorAll('.icon-wrapper');
+	const first = iconWrappers[0];
 	const popperInstance = Popper.createPopper(first, tooltip);
 }
