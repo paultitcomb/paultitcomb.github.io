@@ -137,10 +137,12 @@ function addIcons() {
 
 // event listeners
 document.addEventListener('DOMContentLoaded', addIcons);
-iconGrid.addEventListener(
-	'click',
-	e => {
-		console.log(e);
-	},
-	true
-);
+iconGrid.addEventListener('click', e => {
+	const clicked = e.target;
+	if (clicked.classList.contains('icon-wrapper')) {
+		console.log(clicked);
+	} else {
+		const parent = clicked.closest('.icon-wrapper');
+		console.log(parent);
+	}
+});
