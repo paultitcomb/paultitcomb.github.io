@@ -112,6 +112,7 @@ function insertInlineStyles() {
 function createMarkup(svgCode, color) {
 	const iconMarkup = `${svgCode}<p>Colour: ${color}</p>`;
 	const iconWrapper = document.createElement('div');
+	iconWrapper.classList.add('icon-wrapper');
 	iconWrapper.insertAdjacentHTML('afterbegin', iconMarkup);
 	const svgEl = iconWrapper.querySelector('svg');
 	svgEl.classList.add(color);
