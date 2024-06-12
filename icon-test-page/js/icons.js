@@ -155,17 +155,11 @@ function getIconInfo(el) {
 	const iconName = classArr[0];
 	const iconColour = classArr[1];
 	return { name: iconName, colour: iconColour };
-
-	// <div data-sly-use.iconTest="../../pagecomponents/page/icons.html">
-	// 	<span class="icon" data-sly-call="${iconTest.iconSearch }"></span>
-	// 	<span class="icon" data-sly-call="${iconTest.iconSearch @ color='dark-red' }"></span>
-	// 	<span class="icon" data-sly-call="${iconTest.iconSearch @ color='black' }"></span>
-	// </div>
 }
 
 function generateIconMarkup(iconInfo) {
 	const classStr = camelize(iconInfo.name);
-	const str = `<sly data-sly-use.iconsTemplate="../../pagecomponents/page/icons.html"><sly data-sly-call="\${iconsTemplate.${classStr} @ color='${iconInfo.colour}' }"></sly></sly>`;
+	const str = `<sly data-sly-use.iconsTemplate="uk/pagecomponents/page/icons.html"><sly data-sly-call="\${iconsTemplate.${classStr} @ color='${iconInfo.colour}' }"></sly></sly>`;
 	return str;
 }
 
