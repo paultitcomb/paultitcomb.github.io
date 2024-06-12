@@ -135,6 +135,10 @@ function addIcons() {
 	}
 }
 
+function camelize(str) {
+	return str.replace(/-./g, x => x[1].toUpperCase());
+}
+
 function getIconWrapper(el) {
 	let clicked = null;
 	if (el.classList.contains('icon-wrapper')) {
@@ -148,7 +152,7 @@ function getIconWrapper(el) {
 function getIconInfo(el) {
 	const svg = el.querySelector('svg');
 	const classArr = Array.from(svg.classList);
-	const iconName = classArr[0].replace('icon-', '');
+	const iconName = classArr[0];
 	const iconColour = classArr[1];
 	return { name: iconName, colour: iconColour };
 
@@ -159,8 +163,14 @@ function getIconInfo(el) {
 	// </div>
 }
 
+function generateIconMarkup(iconInfo) {
+	const classStr = camelize(iconInfo.iconName);
+	const str = `<span class="icon" data-sly-call="\${iconTest.${classStr} @ color='${iconInfo.iconColour}' }"></span>`;
+	return str;
+}
+
 function copyCodeToClipboard(iconInfo) {
-	const clipboardText = `<span class="icon" data-sly-call="blah"></span>`;
+	const clipboardText = generateIconMarkup(iconInfo);
 	navigator.clipboard.writeText(clipboardText).then(
 		function () {
 			console.log('Text is: ', clipboardText);
