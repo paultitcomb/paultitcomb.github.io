@@ -165,7 +165,7 @@ function getIconInfo(el) {
 
 function generateIconMarkup(iconInfo) {
 	const classStr = camelize(iconInfo.name);
-	const str = `<span class="icon" data-sly-call="\${iconTest.${classStr} @ color='${iconInfo.colour}' }"></span>`;
+	const str = `<sly data-sly-use.iconTest="../../pagecomponents/page/icons.html"><sly data-sly-call="\${iconTemplate.${classStr} @ color='${iconInfo.colour}' }"></sly></sly>`;
 	return str;
 }
 
