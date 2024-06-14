@@ -9,6 +9,7 @@ function injectIframe() {
 
 	const iframe = document.createElement('iframe');
 	iframe.src = 'https://paultitcomb.github.io/icon-test-page';
+	iframe.allow = 'clipboard-write';
 
 	// clear out the text
 	iframeWrapper.innerHTML = '';
