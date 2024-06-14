@@ -1,4 +1,15 @@
 const iconGrid = document.querySelector('.icon-grid');
+const rotationControls = document.querySelectorAll('input[name="rotate-icon"]');
+
+function getRotationInfo() {
+	let rotationVal = null;
+	rotationControls.forEach(radio => {
+		if (radio.checked) {
+			rotationVal = radio.value;
+		}
+	});
+	return rotationVal;
+}
 
 function getIconWrapper(el) {
 	let clicked = null;
@@ -15,7 +26,7 @@ function getIconInfo(el) {
 	const classArr = Array.from(svg.classList);
 	const iconName = classArr[0];
 	const iconColour = classArr[1];
-	return { name: iconName, colour: iconColour };
+	return { name: iconName, colour: iconColour, rotate: getRotationInfo() };
 }
 
 function camelize(str) {
@@ -24,6 +35,7 @@ function camelize(str) {
 
 function generateIconMarkup(iconInfo) {
 	const classStr = camelize(iconInfo.name);
+	console.log(iconInfo);
 	const str = `<sly data-sly-use.iconsTemplate="uk/pagecomponents/page/icons.html"><sly data-sly-call="\${iconsTemplate.${classStr} @ color='${iconInfo.colour}' }"></sly></sly>`;
 	return str;
 }
