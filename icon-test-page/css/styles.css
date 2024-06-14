@@ -24,3 +24,27 @@
 	margin-bottom: 2rem;
 	font-size: 1rem;
 }
+
+.icon-control-panel {
+	display: inline-block;
+	background-color: #eee;
+	border: 1px solid #ccc;
+	padding: 2rem;
+	font-family: Lato;
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.icon-control-panel h5 {
+	text-align: center;
+}
+
+.control input {
+	margin-right: 5px;
+}
+
+.control label {
+	font-weight: normal;
+	font-size: 1.2rem;
+}
