@@ -2,7 +2,7 @@ const iconGrid = document.querySelector('.icon-grid');
 const rotationControls = document.querySelectorAll('input[name="rotate-icon"]');
 
 function getRotationInfo() {
-	let rotationVal = null;
+	let rotationVal = '0';
 	rotationControls.forEach(radio => {
 		if (radio.checked) {
 			rotationVal = radio.value;
