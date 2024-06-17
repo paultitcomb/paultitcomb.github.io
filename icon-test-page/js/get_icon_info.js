@@ -1,6 +1,7 @@
 const iconGrid = document.querySelector('.icon-grid');
 const controlPanel = document.querySelector('.icon-control-panel');
 const rotationControls = document.querySelectorAll('input[name="rotate-icon"]');
+const rotatableIcons = document.querySelectorAll('.rotatable');
 
 function getRotationInfo() {
 	let rotationVal = '0';
@@ -53,6 +54,15 @@ function copyCodeToClipboard(iconInfo) {
 	);
 }
 
+function removeRotateClass(svg) {
+	const classArr = Array.from(svg.classList);
+	const rotateClassArr = classArr.filter(classStr => classStr.startsWith('rotate-'));
+	if (rotateClassArr.length > 0) {
+		const rotateClass = rotateClassArr[0];
+		svg.classList.remove(rotateClass);
+	}
+}
+
 iconGrid.addEventListener('click', e => {
 	const iconWrapper = getIconWrapper(e.target);
 	if (iconWrapper) {
@@ -62,5 +72,12 @@ iconGrid.addEventListener('click', e => {
 });
 
 controlPanel.addEventListener('change', e => {
-	console.log(e);
+	const rotationAmount = getRotationInfo();
+	rotatableIcons.forEach(icon => {
+		const svgTag = icon.querySelector('svg');
+		removeRotateClass(svgTag);
+		if (rotationAmount !== '0') {
+			svgTag.classList.add(`rotate-${rotationAmount}`);
+		}
+	});
 });
