@@ -59,3 +59,7 @@ iconGrid.addEventListener('click', e => {
 		copyCodeToClipboard(iconInfo);
 	}
 });
+
+iconGrid.addEventListener('change', e => {
+	console.log(e);
+});
