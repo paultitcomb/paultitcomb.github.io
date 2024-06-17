@@ -1,4 +1,5 @@
 const iconGrid = document.querySelector('.icon-grid');
+const controlPanel = document.querySelector('.icon-control-panel');
 const rotationControls = document.querySelectorAll('input[name="rotate-icon"]');
 
 function getRotationInfo() {
@@ -60,6 +61,6 @@ iconGrid.addEventListener('click', e => {
 	}
 });
 
-iconGrid.addEventListener('change', e => {
+controlPanel.addEventListener('change', e => {
 	console.log(e);
 });
