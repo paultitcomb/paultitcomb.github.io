@@ -35,8 +35,8 @@ function camelize(str) {
 
 function generateIconMarkup(iconInfo) {
 	const classStr = camelize(iconInfo.name);
-	console.log(iconInfo);
-	const str = `<sly data-sly-use.iconsTemplate="uk/pagecomponents/page/icons.html"><sly data-sly-call="\${iconsTemplate.${classStr} @ color='${iconInfo.colour}' }"></sly></sly>`;
+	const rotationStr = iconInfo.rotate !== '0' ? `, rotate='rotate-${iconInfo.rotate}'` : '';
+	const str = `<sly data-sly-use.iconsTemplate="uk/pagecomponents/page/icons.html"><sly data-sly-call="\${iconsTemplate.${classStr} @ color='${iconInfo.colour}' ${rotationStr} }"></sly></sly>`;
 	return str;
 }
 
