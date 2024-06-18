@@ -2,6 +2,7 @@ const iconGrid = document.querySelector('.icon-grid');
 const controlPanel = document.querySelector('.icon-control-panel');
 const rotationControls = document.querySelectorAll('input[name="rotate-icon"]');
 const rotatableIcons = document.querySelectorAll('.rotatable');
+const showAnimCb = document.querySelector('#show-animated');
 
 function getRotationInfo() {
 	let rotationVal = '0';
@@ -80,4 +81,8 @@ controlPanel.addEventListener('change', e => {
 			svgTag.classList.add(`rotate-${rotationAmount}`);
 		}
 	});
+});
+
+showAnimCb.addEventListener('change', e => {
+	console.log(e.target);
 });
