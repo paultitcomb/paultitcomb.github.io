@@ -73,7 +73,7 @@
 }
 
 .spin-wrapper.spin svg {
-	animation: spin 0.7s linear infinite;
+	animation: spin 1s linear infinite;
 }
 
 @keyframes spin {
