@@ -72,7 +72,7 @@
 	cursor: pointer;
 }
 
-.spin-wrapper.spin {
+.spin-wrapper.spin svg {
 	animation: spin 0.7s linear infinite;
 }
 
