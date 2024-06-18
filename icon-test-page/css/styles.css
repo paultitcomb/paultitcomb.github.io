@@ -55,3 +55,32 @@
 	font-weight: normal;
 	font-size: 1.2rem;
 }
+
+.animate-switch {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 1rem;
+	font-size: 1.2rem;
+	margin-top: 5rem;
+}
+
+.animate-switch label,
+.animate-switch input {
+	margin: 0;
+	font-weight: normal;
+	cursor: pointer;
+}
+
+.spin-wrapper.spin {
+	animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}

@@ -84,5 +84,8 @@ controlPanel.addEventListener('change', e => {
 });
 
 showAnimCb.addEventListener('change', e => {
-	console.log(e.target);
+	const cb = e.target;
+	const iconWrapper = cb.closest('.icon-wrapper');
+	const spinWrapper = iconWrapper.querySelector('.spin-wrapper');
+	spinWrapper.classList.toggle('spin');
 });
