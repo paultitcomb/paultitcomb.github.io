@@ -41,6 +41,10 @@
 	text-align: center;
 }
 
+.icon-control-panel .desc {
+	font-size: 1rem;
+}
+
 .controls-wrapper {
 	display: flex;
 	gap: 2rem;

@@ -1,5 +1,6 @@
 const iconGrid = document.querySelector('.icon-grid');
 const controlPanel = document.querySelector('.icon-control-panel');
+const codeFormatControls = document.querySelectorAll('input[name="code-format"]');
 const rotationControls = document.querySelectorAll('input[name="rotate-icon"]');
 const rotatableIcons = document.querySelectorAll('.rotatable');
 const showAnimCb = document.querySelector('#show-animated');
@@ -12,6 +13,12 @@ function getRotationInfo() {
 		}
 	});
 	return rotationVal;
+}
+
+function getCodeFormat() {
+	const radios = Array.from(codeFormatControls);
+	const selectedFormat = radios.find(radio => radio.checked);
+	return selectedFormat.value;
 }
 
 function getIconWrapper(el) {
@@ -43,8 +50,24 @@ function generateIconMarkup(iconInfo) {
 	return str;
 }
 
-function copyCodeToClipboard(iconInfo) {
-	const clipboardText = generateIconMarkup(iconInfo);
+function getSvgMarkup(iconWrapper) {
+	const svgEl = iconWrapper.querySelector('svg');
+	const svgMarkup = svgEl.outerHTML;
+	// remove new line and tab characters from the svg string
+	const regex = /[\n\t]/g;
+	return svgMarkup.replace(regex, '');
+}
+
+function copyCodeToClipboard(iconWrapper, iconInfo, codeFormat) {
+	let clipboardText = '';
+	if (codeFormat === 'htl') {
+		clipboardText = generateIconMarkup(iconInfo);
+	}
+
+	if (codeFormat === 'svg') {
+		clipboardText = getSvgMarkup(iconWrapper);
+	}
+
 	navigator.clipboard.writeText(clipboardText).then(
 		function () {
 			console.log('Text is: ', clipboardText);
@@ -68,7 +91,8 @@ iconGrid.addEventListener('click', e => {
 	const iconWrapper = getIconWrapper(e.target);
 	if (iconWrapper) {
 		const iconInfo = getIconInfo(iconWrapper);
-		copyCodeToClipboard(iconInfo);
+		const codeFormat = getCodeFormat();
+		copyCodeToClipboard(iconWrapper, iconInfo, codeFormat);
 	}
 });
 
